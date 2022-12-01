@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ada9f702-1ac5-45f6-9db1-65762b2be820" name="Changes" comment="" />
+    <list default="true" id="ada9f702-1ac5-45f6-9db1-65762b2be820" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/client/core/ClientFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/core/ClientFactory.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +38,7 @@
       <option name="presentableId" value="Default" />
       <updated>1669901502340</updated>
       <workItem from="1669901503642" duration="250000" />
-      <workItem from="1669905040761" duration="413000" />
+      <workItem from="1669905040761" duration="937000" />
     </task>
     <servers />
   </component>
