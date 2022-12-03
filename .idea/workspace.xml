@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ada9f702-1ac5-45f6-9db1-65762b2be820" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/SEP2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SEP2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/ChatApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/ChatApp.java" afterDir="false" />
-    </list>
+    <list default="true" id="ada9f702-1ac5-45f6-9db1-65762b2be820" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,7 +97,7 @@
       <workItem from="1669905040761" duration="2025000" />
       <workItem from="1669911976838" duration="391000" />
       <workItem from="1669912608195" duration="13000" />
-      <workItem from="1669916972868" duration="1799000" />
+      <workItem from="1669916972868" duration="2396000" />
     </task>
     <servers />
   </component>
