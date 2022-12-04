@@ -7,6 +7,8 @@ import shared.util.Message;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.rmi.RemoteException;
+import java.util.List;
 
 public class ModelManager implements Model {
     private PropertyChangeSupport support;
@@ -19,6 +21,11 @@ public class ModelManager implements Model {
         support = new PropertyChangeSupport(this);
         client.addListener("NewMessage", this::receive);
         username = "none";
+        client.addListener("SignUpDenied",this::denied);
+    }
+
+    private void denied(PropertyChangeEvent propertyChangeEvent) {
+        support.firePropertyChange("SignUpDenied",null,null);
     }
 
 
@@ -41,8 +48,28 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public void signUp(String firstName,String lastName,String username,String password){
+        try {
+            client.signUp(firstName,lastName,username,password);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<String> getUsernames() {
+        return client.getUsernames();
+    }
+
+    @Override
     public void requestStats() {
-        String s = client.requestStats();
+        String s = null;
+
+        try {
+            s = client.requestStats();
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
         Message message = new Message(s, "Server says");
         support.firePropertyChange("MessageReceived", null, message);
 

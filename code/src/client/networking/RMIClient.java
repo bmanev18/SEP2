@@ -1,9 +1,11 @@
 package client.networking;
 
+import server.networking.RMIServerImpl;
 import shared.networking.ClientCallback;
 import shared.networking.RMIServer;
 import shared.util.Message;
 
+import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.rmi.NotBoundException;
@@ -11,6 +13,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
 
 public class RMIClient implements Client, ClientCallback {
     private RMIServer server;
@@ -59,6 +62,10 @@ public class RMIClient implements Client, ClientCallback {
         System.out.println("Connected");
     }
 
+    private void denied(PropertyChangeEvent propertyChangeEvent) {
+        support.firePropertyChange("SignUpDenied",null,null);
+    }
+
     @Override
     public void addListener(String eventName, PropertyChangeListener listener) {
         support.addPropertyChangeListener(eventName, listener);
@@ -76,16 +83,25 @@ public class RMIClient implements Client, ClientCallback {
     }
 
     @Override
-    public String requestStats() {
-        try {
-            return server.getStats();
-        } catch (RemoteException e) {
-            throw new RuntimeException("Can not return stats");
-        }
+    public String requestStats() throws RemoteException {
+        return server.getStats();
+    }
+
+    @Override
+    public void signUp(String firstName, String lastName, String username, String password) throws RemoteException {
+        server.signUp(firstName,lastName,username,password);
     }
 
     @Override
     public String getUsername() throws RemoteException {
         return username;
+    }
+    @Override
+    public List<String> getUsernames() {
+        try {
+            return server.getAllUsernames();
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

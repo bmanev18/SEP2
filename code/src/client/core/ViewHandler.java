@@ -5,24 +5,34 @@ import client.views.login.LogInController;
 import client.views.signUpView.SignUpViewController;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
+import java.awt.*;
 import java.io.IOException;
 
 public class ViewHandler {
 
     private Stage stage;
+
+    private Stage alertBoxStage;
     private Scene chatScene;
     private Scene logInScene;
-
     private Scene signUpScene;
+    private Scene alertBoxScene;
     private ViewModelFactory vmf;
-
     public ViewHandler(ViewModelFactory vmf) {
         this.vmf = vmf;
         stage = new Stage();
+        alertBoxStage = new Stage();
+        alertBoxStage.initModality(Modality.APPLICATION_MODAL);
     }
 
     public void start() {
@@ -87,4 +97,24 @@ public class ViewHandler {
         stage.setScene(signUpScene);
         stage.setTitle("SignUp");
 }
+  public void openAnAlertBox(String messageToUser,String title){
+        alertBoxStage.setTitle(title);
+        alertBoxStage.setMinWidth(250);
+        alertBoxStage.setMinHeight(120);
+
+        Label label1 = new Label();
+        label1.setText(messageToUser);
+
+        Button closeButton = new Button("Close");
+        closeButton.setOnAction(actionEvent -> alertBoxStage.close());
+
+        VBox vBox = new VBox(10);
+        vBox.getChildren().addAll(label1,closeButton);
+        vBox.setAlignment(Pos.CENTER);
+
+        alertBoxScene = new Scene(vBox);
+        alertBoxStage.setScene(alertBoxScene);
+        alertBoxStage.showAndWait();
+
+  }
 }
