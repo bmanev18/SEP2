@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 
 import java.awt.*;
 import java.io.IOException;
+import java.rmi.RemoteException;
 
 public class ViewHandler {
 
@@ -49,7 +50,7 @@ public class ViewHandler {
             ChatController chatController = loader.getController();
             chatController.innit(vmf.getChatViewModel());
             stage.setOnCloseRequest(e -> {
-                vmf.getChatViewModel().sendMessage("%exit%");
+                    vmf.getChatViewModel().disconnect();
                 Platform.exit();
             });
 

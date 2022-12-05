@@ -21,6 +21,5 @@
       <Label layoutX="381.0" layoutY="85.0" text="Username" />
       <Label layoutX="381.0" layoutY="149.0" text="Password" />
       <Button layoutX="271.0" layoutY="200.0" mnemonicParsing="false" onAction="#OnSignUp" text="Sign Up" />
-      <Label layoutX="387.0" layoutY="127.0" prefHeight="17.0" prefWidth="137.0" text="Username already taken." textFill="RED" />
    </children>
 </AnchorPane>

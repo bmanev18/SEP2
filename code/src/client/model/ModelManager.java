@@ -1,6 +1,7 @@
 package client.model;
 
 import client.networking.Client;
+import shared.networking.ClientCallback;
 import shared.networking.RMIServer;
 import shared.util.Message;
 
@@ -59,6 +60,15 @@ public class ModelManager implements Model {
     @Override
     public List<String> getUsernames() {
         return client.getUsernames();
+    }
+
+    @Override
+    public void disconnect(){
+        try {
+            client.disconnect((ClientCallback) client);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

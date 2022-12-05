@@ -1,5 +1,6 @@
 package client.networking;
 
+import shared.networking.ClientCallback;
 import shared.util.Message;
 import shared.Subject;
 
@@ -21,4 +22,5 @@ public interface Client extends Subject {
 
     List<String> getUsernames();
 
+    void disconnect(ClientCallback Callback) throws RemoteException;
 }

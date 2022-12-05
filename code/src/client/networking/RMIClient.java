@@ -104,4 +104,9 @@ public class RMIClient implements Client, ClientCallback {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public void disconnect(ClientCallback Callback) throws RemoteException {
+        server.disconnect(this);
+    }
 }

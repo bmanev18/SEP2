@@ -20,4 +20,6 @@ public interface RMIServer extends Remote {
     void signUp(String firstName, String lastName, String username, String password) throws RemoteException;
 
     List<String> getAllUsernames() throws RemoteException;
+
+    void disconnect(ClientCallback clientCallback) throws RemoteException;
 }

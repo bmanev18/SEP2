@@ -29,12 +29,14 @@ public class RMIServerImpl implements RMIServer{
     private ModelImpl model;
 
     private PropertyChangeSupport support = new PropertyChangeSupport(this);
+    private ArrayList<PropertyChangeListener> pcl;
 
     public RMIServerImpl() throws RemoteException {
         UnicastRemoteObject.exportObject(this, 0);
         model = new ModelImpl();
         broadcast = new BroadcastImpl();
         clients = new HashMap<>();
+        pcl = new ArrayList<>();
     }
 
 
@@ -58,10 +60,11 @@ public class RMIServerImpl implements RMIServer{
             try {
                 client.receive((Message) evt.getNewValue());
             } catch (RemoteException e) {
-                throw new RuntimeException("Lambda");
+                e.printStackTrace();
             }
         };
         broadcast.addListener("NewMessage", listener);
+        pcl.add(listener);
 
         clients.put(client, listener);
         System.out.println("Passed");
@@ -91,6 +94,15 @@ public class RMIServerImpl implements RMIServer{
 
     public List<String> getAllUsernames(){
         return model.getAllUsername();
+    }
+
+    @Override
+    public void disconnect(ClientCallback clientCallback) {
+        PropertyChangeListener remove = clients.remove(clientCallback);
+        clients.remove(clientCallback);
+        broadcast.removeListener("NewMessage",remove);
+        pcl.remove(remove);
+
     }
 
     @Override
