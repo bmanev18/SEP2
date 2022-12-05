@@ -1,4 +1,4 @@
--- create schema sep2_database;
+create schema sep2_database;
 set schema 'sep2_database';
 
 create domain username as varchar(15) not null;
@@ -23,11 +23,12 @@ create table chats
 
 create table messages
 (
+    id       serial,
     sender   username,
     toChat   integer,
     text     varchar(500),
     datetime timestamp,
-    primary key (sender, toChat, datetime),
+    primary key (id),
     foreign key (sender) references users (username),
     foreign key (toChat) references chats (id)
 );
@@ -40,9 +41,3 @@ create table receivers
     foreign key (username) references users (username),
     foreign key (chat) references chats (id)
 );
-
-/*Messages(sender, toChat, text, timeStamp)
-PK: sender, toChat, timeStamp
-FK: sender ref. Users(username)
-FK: toChat ref. Chat(id)
-*/
