@@ -21,8 +21,14 @@ public class LogInController {
     }
 
     public void onEnterButton() {
-        viewModel.changeUsername(usernameField.getText());
-        viewHandler.openChatView();
+        if(usernameField.getText().isEmpty()|| passwordField.getText().isEmpty()){
+            viewHandler.openAnAlertBox("Empty Fields","Log In Failed");
+        } else if(viewModel.getPassword(usernameField.getText()).equals(passwordField.getText())) {
+            viewModel.changeUsername(usernameField.getText());
+            viewHandler.openChatView();
+        } else {
+            viewHandler.openAnAlertBox("Incorrect Credentials","Log In Failed");
+        }
     }
 
     public void keyPressed(KeyEvent keyEvent) {

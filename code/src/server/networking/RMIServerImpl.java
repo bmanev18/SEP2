@@ -99,10 +99,14 @@ public class RMIServerImpl implements RMIServer{
     @Override
     public void disconnect(ClientCallback clientCallback) {
         PropertyChangeListener remove = clients.remove(clientCallback);
-        clients.remove(clientCallback);
         broadcast.removeListener("NewMessage",remove);
         pcl.remove(remove);
 
+    }
+
+    @Override
+    public String getPassword(String username){
+        return model.getPassword(username);
     }
 
     @Override

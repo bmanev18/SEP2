@@ -10,4 +10,6 @@ public interface DAO{
     User create(String firstName,String lastName,String username,String password) throws SQLException;
 
     List<String> getUsernames() throws SQLException;
+
+    String getPassword(String username) throws SQLException;
 }

@@ -18,9 +18,11 @@ public interface Client extends Subject {
 
     String requestStats() throws RemoteException;
 
-    void signUp(String firstName,String lastName,String username,String password) throws RemoteException;
+    void signUp(String firstName,String lastName,String username,String password);
 
     List<String> getUsernames();
 
-    void disconnect(ClientCallback Callback) throws RemoteException;
+    void disconnect(ClientCallback Callback);
+
+    String getPassword(String username);
 }

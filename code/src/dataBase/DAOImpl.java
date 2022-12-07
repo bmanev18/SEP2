@@ -50,4 +50,19 @@ public class DAOImpl implements DAO {
             return userNames;
         }
     }
+
+    @Override
+    public String getPassword(String username) throws SQLException {
+        String password = " ";
+        try(Connection connection = getConnection()){
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM users where username = ?");
+            statement.setString(1,username);
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()){
+                password = resultSet.getString("password");
+            }
+        }
+        return password;
+    }
+
 }

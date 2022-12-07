@@ -22,14 +22,8 @@ public class ModelManager implements Model {
         support = new PropertyChangeSupport(this);
         client.addListener("NewMessage", this::receive);
         username = "none";
-        client.addListener("SignUpDenied",this::denied);
     }
-
-    private void denied(PropertyChangeEvent propertyChangeEvent) {
-        support.firePropertyChange("SignUpDenied",null,null);
-    }
-
-
+    
     @Override
     public void send(String text) {
         client.toCallback(new Message(text, username));
@@ -50,11 +44,7 @@ public class ModelManager implements Model {
 
     @Override
     public void signUp(String firstName,String lastName,String username,String password){
-        try {
-            client.signUp(firstName,lastName,username,password);
-        } catch (RemoteException e) {
-            throw new RuntimeException(e);
-        }
+        client.signUp(firstName,lastName,username,password);
     }
 
     @Override
@@ -64,11 +54,12 @@ public class ModelManager implements Model {
 
     @Override
     public void disconnect(){
-        try {
-            client.disconnect((ClientCallback) client);
-        } catch (RemoteException e) {
-            throw new RuntimeException(e);
-        }
+        client.disconnect((ClientCallback) client);
+    }
+
+    @Override
+    public String getPassword(String username) {
+        return client.getPassword(username);
     }
 
     @Override
@@ -84,6 +75,7 @@ public class ModelManager implements Model {
         support.firePropertyChange("MessageReceived", null, message);
 
     }
+
 
     @Override
     public void addListener(String eventName, PropertyChangeListener listener) {

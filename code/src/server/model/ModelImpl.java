@@ -33,6 +33,18 @@ public class ModelImpl implements Model {
     }
 
     @Override
+    public String getPassword(String username) {
+        String password = " ";
+        try {
+            password = DAOImpl.getInstance().getPassword(username);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return password;
+    }
+
+
+    @Override
     public void addListener(String eventName, PropertyChangeListener listener) {
         support.addPropertyChangeListener(eventName,listener);
 

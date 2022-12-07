@@ -88,12 +88,16 @@ public class RMIClient implements Client, ClientCallback {
     }
 
     @Override
-    public void signUp(String firstName, String lastName, String username, String password) throws RemoteException {
-        server.signUp(firstName,lastName,username,password);
+    public void signUp(String firstName, String lastName, String username, String password){
+        try {
+            server.signUp(firstName,lastName,username,password);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
-    public String getUsername() throws RemoteException {
+    public String getUsername(){
         return username;
     }
     @Override
@@ -101,12 +105,25 @@ public class RMIClient implements Client, ClientCallback {
         try {
             return server.getAllUsernames();
         } catch (RemoteException e) {
+            throw new RuntimeException();
+        }
+    }
+
+    @Override
+    public void disconnect(ClientCallback Callback) {
+        try {
+            server.disconnect(this);
+        } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
     }
 
     @Override
-    public void disconnect(ClientCallback Callback) throws RemoteException {
-        server.disconnect(this);
+    public String getPassword(String username) {
+        try {
+            return server.getPassword(username);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -21,4 +21,6 @@ public interface Model extends Subject {
     List<String> getUsernames();
 
     void disconnect();
+
+    String getPassword(String username);
 }
