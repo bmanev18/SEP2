@@ -21,7 +21,7 @@ public class LogInController {
     }
 
     public void onEnterButton() {
-        viewModel.changeUsername(usernameField.getText());
+        //viewModel.changeUsername();
         viewHandler.openChatView();
     }
 

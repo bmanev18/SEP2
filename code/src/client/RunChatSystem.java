@@ -1,7 +1,9 @@
+package client;
+
 import javafx.application.Application;
 
-public class RunChatApp {
+public class RunChatSystem {
     public static void main(String[] args) {
-        Application.launch(ChatApp.class);
+        Application.launch(ChatSystem.class);
     }
 }

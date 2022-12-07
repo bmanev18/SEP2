@@ -1,5 +1,6 @@
 package client.networking;
 
+import server.model.User;
 import shared.networking.ClientCallback;
 import shared.networking.RMIServer;
 import shared.util.Message;
@@ -60,17 +61,6 @@ public class RMIClient implements Client, ClientCallback {
     }
 
     @Override
-    public void addListener(String eventName, PropertyChangeListener listener) {
-        support.addPropertyChangeListener(eventName, listener);
-    }
-
-    @Override
-    public void removeListener(String eventName, PropertyChangeListener listener) {
-        support.addPropertyChangeListener(eventName, listener);
-
-    }
-
-    @Override
     public void changeUsername(String username) {
         this.username = username;
     }
@@ -85,7 +75,27 @@ public class RMIClient implements Client, ClientCallback {
     }
 
     @Override
+    public User requestSearchFromCallback(String username) throws RemoteException {
+        return search(username);
+    }
+
+    public User search(String username) throws RemoteException {
+        return server.search(username);
+    }
+
+    @Override
     public String getUsername() throws RemoteException {
         return username;
+    }
+
+    @Override
+    public void addListener(String eventName, PropertyChangeListener listener) {
+        support.addPropertyChangeListener(eventName, listener);
+    }
+
+    @Override
+    public void removeListener(String eventName, PropertyChangeListener listener) {
+        support.addPropertyChangeListener(eventName, listener);
+
     }
 }

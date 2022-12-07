@@ -1,9 +1,8 @@
 package client.core;
 
-import client.views.chatSystem.ChatController;
+import client.views.chatSystem.MainController;
 import client.views.login.LogInController;
 import client.views.signUpView.SignUpViewController;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -33,15 +32,11 @@ public class ViewHandler {
     public void openChatView() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("../views/chatSystem/Chat.fxml"));
+            loader.setLocation(getClass().getResource("../views/chatSystem/main.fxml"));
             Parent root = loader.load();
 
-            ChatController chatController = loader.getController();
-            chatController.innit(vmf.getChatViewModel());
-            stage.setOnCloseRequest(e -> {
-                vmf.getChatViewModel().sendMessage("%exit%");
-                Platform.exit();
-            });
+            MainController mainController = loader.getController();
+            mainController.innit(vmf.getMainViewModel());
 
             chatScene = new Scene(root);
 
@@ -70,6 +65,7 @@ public class ViewHandler {
         stage.setScene(logInScene);
         stage.setTitle("Log in");
     }
+
     public void openSignUpView() {
         try {
             FXMLLoader loader = new FXMLLoader();
@@ -79,12 +75,12 @@ public class ViewHandler {
             SignUpViewController signUpViewController = loader.getController();
             signUpViewController.innit(this, vmf.getSignUpViewModel());
 
-            signUpScene= new Scene(root);
+            signUpScene = new Scene(root);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
         stage.setScene(signUpScene);
         stage.setTitle("SignUp");
-}
+    }
 }

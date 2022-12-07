@@ -4,11 +4,56 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ada9f702-1ac5-45f6-9db1-65762b2be820" name="Changes" comment="" />
+    <list default="true" id="ada9f702-1ac5-45f6-9db1-65762b2be820" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/code/src/client/model/Chat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/client/model/ChatHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/client/views/chatSystem/MainController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/client/views/chatSystem/MainViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/client/views/chatSystem/main.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/design/search.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/design/send.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/design/settings.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/ChatApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/RunChatApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/core/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/core/ViewHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/core/ViewModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/core/ViewModelFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/model/ModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/model/ModelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/networking/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/networking/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/networking/RMIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/networking/RMIClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/runChatSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/RunChatSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/views/chatSystem/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/chatSystem/ChatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/views/chatSystem/ChatViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/chatSystem/ChatViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/views/login/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/login/LogInController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/dataBase/DAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/dataBase/DAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/server/networking/RMIServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/server/networking/RMIServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/shared/networking/RMIServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/shared/networking/RMIServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/shared/util/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/shared/util/Message.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/extra/Diagrams.asta.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/core/ViewHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/core/ViewHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/core/ViewModelFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/core/ViewModelFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/model/Model.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/model/ModelManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/model/ModelManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/ChatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/ChatController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/ChatViewModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/ChatViewModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/login/LogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/login/LogInController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/shared/util/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/shared/util/Message.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -18,11 +63,11 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -49,18 +94,29 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="client.model" />
+      <recent name="client.views.chatSystem" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Bozhidar Manev\Documents\GitHub\SEP2\code" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.RunChatApp">
-    <configuration name="RunChatApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="RunChatApp" />
+  <component name="RunManager" selected="Application.StartServer">
+    <configuration name="RunChatSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.RunChatSystem" />
       <module name="SEP2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -80,8 +136,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RunChatApp" />
         <item itemvalue="Application.StartServer" />
+        <item itemvalue="Application.RunChatSystem" />
       </list>
     </recent_temporary>
   </component>
@@ -98,6 +154,10 @@
       <workItem from="1669911976838" duration="391000" />
       <workItem from="1669912608195" duration="13000" />
       <workItem from="1669916972868" duration="2396000" />
+      <workItem from="1670163160193" duration="60000" />
+      <workItem from="1670169443922" duration="7740000" />
+      <workItem from="1670243173728" duration="7953000" />
+      <workItem from="1670328407609" duration="20522000" />
     </task>
     <servers />
   </component>
@@ -114,5 +174,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -11,7 +11,7 @@ import shared.util.Message;
 import java.beans.PropertyChangeEvent;
 
 public class ChatViewModel {
-    private Model model;
+   /* private Model model;
     private StringProperty messageSend;
     private ObservableList<Message> messageReceived;
 
@@ -42,8 +42,5 @@ public class ChatViewModel {
     public StringProperty messageSend() {
         return messageSend;
     }
-
-    public void requestStats() {
-        model.requestStats();
-    }
+*/
 }

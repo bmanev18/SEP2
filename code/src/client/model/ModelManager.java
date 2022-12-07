@@ -1,51 +1,61 @@
 package client.model;
 
 import client.networking.Client;
-import shared.networking.RMIServer;
+import server.model.User;
 import shared.util.Message;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.rmi.RemoteException;
 
 public class ModelManager implements Model {
     private PropertyChangeSupport support;
     private Client client;
-    private String username;
+    private ChatHistory chatHistory;
 
     public ModelManager(Client client) {
         this.client = client;
         client.startClient();
         support = new PropertyChangeSupport(this);
         client.addListener("NewMessage", this::receive);
-        username = "none";
+        chatHistory = new ChatHistory();
     }
 
 
     @Override
-    public void send(String text) {
-        client.toCallback(new Message(text, username));
+    public void send(Message message) {
+        /*Message message = chatHistory.send(text);
+        client.toCallback(message);
+        return message;*/
+        client.toCallback(message);
+
     }
 
     @Override
     public void receive(PropertyChangeEvent event) {
         Message msg = (Message) event.getNewValue();
-        System.out.println("Model Manager::receive " + msg);
+        //chatHistory.receive(event);
         support.firePropertyChange("MessageReceived", null, msg);
+        System.out.println("Model Manager::receive " + msg);
     }
 
     @Override
     public void changeUsername(String username) {
+        //??
+        //chatHistory.changeUsername(username);
         client.changeUsername(username);
-        this.username = username;
+    }
+
+    //??
+    @Override
+    public void changeCurrentChat(Chat chat) {
+        //chatHistory.changeCurrentChat(chat);
     }
 
     @Override
-    public void requestStats() {
-        String s = client.requestStats();
-        Message message = new Message(s, "Server says");
-        support.firePropertyChange("MessageReceived", null, message);
-
+    public User search(String username) throws RemoteException {
+        return client.requestSearchFromCallback(username);
     }
 
     @Override

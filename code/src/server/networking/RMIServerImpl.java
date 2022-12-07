@@ -2,6 +2,7 @@ package server.networking;
 
 import server.model.Broadcast;
 import server.model.BroadcastImpl;
+import server.model.User;
 import shared.networking.ClientCallback;
 import shared.networking.RMIServer;
 import shared.util.Message;
@@ -75,5 +76,11 @@ public class RMIServerImpl implements RMIServer {
         }
 
         return String.valueOf(string);
+    }
+
+    @Override
+    public User search(String username) throws RemoteException {
+        //TODO
+        return null;
     }
 }

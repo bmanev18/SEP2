@@ -9,7 +9,7 @@ import javafx.scene.input.KeyEvent;
 import shared.util.Message;
 
 public class ChatController {
-    @FXML
+    /*@FXML
     private ListView<Message> receivedField;
     @FXML
     private TextField sendTextField;
@@ -20,7 +20,6 @@ public class ChatController {
         this.chatViewModel = chatViewModel;
         sendTextField.textProperty().bindBidirectional(chatViewModel.messageSend());
         receivedField.setItems(chatViewModel.messageReceived());
-
     }
 
     public void onSendButton() {
@@ -28,13 +27,9 @@ public class ChatController {
         sendTextField.clear();
     }
 
-    public void requestStats() {
-        chatViewModel.requestStats();
-    }
-
     public void keyPressed(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER) {
             onSendButton();
         }
-    }
+    }*/
 }

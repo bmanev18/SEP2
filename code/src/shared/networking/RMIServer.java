@@ -1,6 +1,7 @@
 package shared.networking;
 
 import client.networking.RMIClient;
+import server.model.User;
 import shared.util.Message;
 
 import java.rmi.Remote;
@@ -14,4 +15,6 @@ public interface RMIServer extends Remote {
     void broadcast(Message message) throws RemoteException;
 
     String getStats() throws RemoteException;
+
+    User search(String username) throws RemoteException;
 }
