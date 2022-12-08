@@ -3,6 +3,7 @@ package dataBase;
 import shared.util.Message;
 
 import java.sql.*;
+import java.util.List;
 
 public class MessageDAOImpl implements MessageDAO
 {
@@ -29,30 +30,25 @@ public class MessageDAOImpl implements MessageDAO
         "postgres", "admin");
   }
 
-  @Override public Message createMessage(Message message) throws SQLException
+  @Override public Message createMessage(Message message, int chat)
+      throws SQLException
   {
     try (Connection connection = getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
           "INSERT INTO messages(sender,toChat,text,datetime,ID) VALUES (?,?,?,?,?)");
-      ResultSet Id = statement.getGeneratedKeys();
       statement.setString(1, message.getUsername());
-      statement.setInt(2, 1);
+      statement.setInt(2, message.getToChat());
       statement.setString(3, message.getMessageBody());
       statement.setString(4, message.dateTime());
       statement.execute();
     }
-    return new Message(message.getMessageBody(), message.getUsername());
+    return new Message(message.getMessageBody(), message.getUsername(),message.getToChat());
   }
 
-  /*@Override public void deleteMessage(Message message) throws SQLException
+  @Override public List<Message> requestData(String user)
   {
-    try (Connection connection = getConnection())
-    {
-      PreparedStatement statement = connection.prepareStatement(
-          "DELETE FROM messages WHERE ID = ?");
-      statement.setInt(1, message.getId());
-      statement.executeUpdate();
-    }
-  }*/
+    return null;
+  }
+
 }
