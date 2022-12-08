@@ -1,17 +1,24 @@
 package client.views.chatSystem;
 
 import client.model.Chat;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import server.model.User;
 import shared.util.Message;
 
 public class MainController {
-    public Label chatName;
+    @FXML
+    private Label usernameLabel;
+    @FXML
+    private Label chatName;
     @FXML
     private ListView<Message> messagesList;
     @FXML
@@ -21,6 +28,10 @@ public class MainController {
     @FXML
     private TextField searchTextField;
 
+    @FXML
+    private Button settingsButton;
+    @FXML
+    private ImageView sendButton;
     private MainViewModel mainViewModel;
 
     public void innit(MainViewModel mainViewModel) {
@@ -29,8 +40,9 @@ public class MainController {
         searchTextField.textProperty().bindBidirectional(mainViewModel.searchRequest());
         chats.setItems(mainViewModel.chats());
         messagesList.setItems(mainViewModel.messageReceived());
-        messagesList.setVisible(false);
-        sendTextField.setVisible(false);
+        usernameLabel.textProperty().bind(mainViewModel.username());
+        chatName.textProperty().bind(mainViewModel.chatName());
+        setVisibility(false);
 
 
     }
@@ -40,7 +52,7 @@ public class MainController {
         sendTextField.clear();
     }
 
-    private void onSearchButton() {
+    public void onSearchButton() {
         mainViewModel.search(searchTextField.getText());
     }
 
@@ -56,15 +68,42 @@ public class MainController {
 
     public void switchChat(MouseEvent mouseEvent) {
         if (!messagesList.isVisible()) {
-            messagesList.setVisible(true);
-            sendTextField.setVisible(true);
+            setVisibility(true);
         }
 
         Chat selectedItem = chats.getSelectionModel().getSelectedItem();
-        if (!mainViewModel.sameChat(selectedItem)) {
+        if (!mainViewModel.isInSameChat(selectedItem)) {
             mainViewModel.switchChat(selectedItem);
-            chatName.setText(selectedItem.getName());
+            //chatName.setText(selectedItem.getName());
             System.out.println("id " + selectedItem.getId());
         }
+    }
+
+    public void addUser(User user) {
+        mainViewModel.addUser(user);
+    }
+
+    public void leaveChat() {
+        mainViewModel.leaveChat();
+        setVisibility(false);
+    }
+
+    public void downloadChat() {
+        mainViewModel.downloadChat();
+    }
+
+    public void addUser(ActionEvent actionEvent) {
+        //TODO
+    }
+
+    public void customize(ActionEvent actionEvent) {
+        //TODO
+    }
+
+    private void setVisibility(boolean visible) {
+        messagesList.setVisible(visible);
+        sendTextField.setVisible(visible);
+        sendButton.setVisible(visible);
+        settingsButton.setVisible(visible);
     }
 }

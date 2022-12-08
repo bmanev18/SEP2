@@ -8,11 +8,14 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.rmi.RemoteException;
+import java.util.List;
+import java.util.Map;
 
 public class ModelManager implements Model {
     private PropertyChangeSupport support;
     private Client client;
     private ChatHistory chatHistory;
+    private String username;
 
     public ModelManager(Client client) {
         this.client = client;
@@ -20,6 +23,7 @@ public class ModelManager implements Model {
         support = new PropertyChangeSupport(this);
         client.addListener("NewMessage", this::receive);
         chatHistory = new ChatHistory();
+        username = null;
     }
 
 
@@ -42,9 +46,7 @@ public class ModelManager implements Model {
 
     @Override
     public void changeUsername(String username) {
-        //??
-        //chatHistory.changeUsername(username);
-        client.changeUsername(username);
+        this.username = username;
     }
 
     //??
@@ -54,8 +56,43 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public User search(String username) throws RemoteException {
-        return client.requestSearchFromCallback(username);
+    public Chat loadUser(String username) {
+        try {
+            return client.requestSearchFromCallback(username);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+            //TODO pop up
+        }
+    }
+
+    @Override
+    public User loadUser() {
+        return client.loadUser(username);
+    }
+
+    @Override
+    public void addUser(User user, Chat chat) {
+        client.addUser(user.getUsername(), chat.getId());
+    }
+
+    @Override
+    public void leaveChat(String username, int id) {
+        client.leaveChat(username, id);
+    }
+
+    @Override
+    public List<Chat> loadChats() {
+        return client.loadChats(username);
+    }
+
+    @Override
+    public Map<Integer, List<Message>> loadMessages() {
+        return client.loadMessages(username);
+    }
+
+    @Override
+    public void updateUser(String firstName, String lastName, String username, String password) {
+        client.updateUser(firstName, lastName, username, password);
     }
 
     @Override

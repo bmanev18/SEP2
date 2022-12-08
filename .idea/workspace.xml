@@ -5,40 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ada9f702-1ac5-45f6-9db1-65762b2be820" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/code/src/client/model/Chat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/client/model/ChatHistory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/client/views/chatSystem/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/client/views/chatSystem/MainViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/client/views/chatSystem/main.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/design/search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/design/send.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/design/settings.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/SEP2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SEP2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/ChatApp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/RunChatApp.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/client/core/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/core/ViewHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/client/core/ViewModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/core/ViewModelFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/client/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/model/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/client/model/ModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/model/ModelManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/client/networking/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/networking/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/client/networking/RMIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/networking/RMIClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/client/runChatSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/RunChatSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/client/views/chatSystem/ChatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/chatSystem/ChatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/client/views/chatSystem/ChatViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/chatSystem/ChatViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/views/chatSystem/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/chatSystem/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/views/chatSystem/MainViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/chatSystem/MainViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/views/chatSystem/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/chatSystem/main.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/client/views/login/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/login/LogInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/dataBase/DAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/dataBase/DAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/server/model/BroadcastImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/server/model/BroadcastImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/server/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/server/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/server/networking/RMIServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/server/networking/RMIServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/shared/networking/ClientCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/shared/networking/ClientCallback.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/shared/networking/RMIServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/shared/networking/RMIServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/shared/util/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/shared/util/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/extra/Diagrams.asta.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/core/ViewHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/core/ViewHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/core/ViewModelFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/core/ViewModelFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/model/Model.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/model/ModelManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/model/ModelManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/ChatController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/ChatController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/ChatViewModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/ChatViewModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/networking/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/networking/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/networking/RMIClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/networking/RMIClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/MainViewModel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/MainViewModel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/MainViewModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/MainViewModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/main.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/login/LogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/login/LogInController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/shared/util/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/shared/util/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/server/model/BroadcastImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/server/model/BroadcastImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/server/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/server/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/server/networking/RMIServerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/server/networking/RMIServerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/shared/networking/ClientCallback.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/shared/networking/ClientCallback.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/shared/networking/RMIServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/shared/networking/RMIServer.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,20 +79,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Bozhidar Manev/Documents/GitHub/SEP2",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Bozhidar Manev/Documents/GitHub/SEP2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="client.model" />
@@ -157,7 +155,8 @@
       <workItem from="1670163160193" duration="60000" />
       <workItem from="1670169443922" duration="7740000" />
       <workItem from="1670243173728" duration="7953000" />
-      <workItem from="1670328407609" duration="20522000" />
+      <workItem from="1670328407609" duration="42478000" />
+      <workItem from="1670459721519" duration="11789000" />
     </task>
     <servers />
   </component>
@@ -174,6 +173,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XPathView.XPathProjectComponent">
+    <history />
+    <find-history />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

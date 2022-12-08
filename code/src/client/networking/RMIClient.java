@@ -1,5 +1,6 @@
 package client.networking;
 
+import client.model.Chat;
 import server.model.User;
 import shared.networking.ClientCallback;
 import shared.networking.RMIServer;
@@ -12,6 +13,8 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
+import java.util.Map;
 
 public class RMIClient implements Client, ClientCallback {
     private RMIServer server;
@@ -25,11 +28,6 @@ public class RMIClient implements Client, ClientCallback {
 
     @Override
     public void toCallback(Message message) {
-        send(message);
-    }
-
-    @Override
-    public void send(Message message) {
         try {
             server.broadcast(message);
         } catch (RemoteException e) {
@@ -66,26 +64,68 @@ public class RMIClient implements Client, ClientCallback {
     }
 
     @Override
-    public String requestStats() {
-        try {
-            return server.getStats();
-        } catch (RemoteException e) {
-            throw new RuntimeException("Can not return stats");
-        }
-    }
-
-    @Override
-    public User requestSearchFromCallback(String username) throws RemoteException {
-        return search(username);
-    }
-
-    public User search(String username) throws RemoteException {
+    public Chat requestSearchFromCallback(String username) throws RemoteException {
         return server.search(username);
     }
+
 
     @Override
     public String getUsername() throws RemoteException {
         return username;
+    }
+
+    @Override
+    public void addUser(String username, int id) {
+        try {
+            server.addUser(username, id);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void leaveChat(String username, int id) {
+        try {
+            server.leaveChat(username, id);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Chat> loadChats(String username) {
+        try {
+            return server.loadChats(username);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public Map<Integer, List<Message>> loadMessages(String username) {
+        try {
+            return server.loadMessages(username);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public User loadUser(String username) {
+        try {
+            return server.loadUser(username);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void updateUser(String firstName, String lastName, String username, String password) {
+        try {
+            server.updateUser(firstName, lastName, username, password);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

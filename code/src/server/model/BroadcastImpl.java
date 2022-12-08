@@ -15,6 +15,7 @@ public class BroadcastImpl implements Broadcast {
     @Override
     public void broadcast(Message message) {
         support.firePropertyChange("NewMessage", null, message);
+
     }
 
     @Override

@@ -1,5 +1,6 @@
 package server.networking;
 
+import client.model.Chat;
 import server.model.Broadcast;
 import server.model.BroadcastImpl;
 import server.model.User;
@@ -14,6 +15,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RMIServerImpl implements RMIServer {
@@ -40,6 +42,35 @@ public class RMIServerImpl implements RMIServer {
     }
 
     @Override
+    public Map<Integer, List<Message>> loadMessages(String username) {
+        //TODO
+        Map<Integer, List<Message>> map = new HashMap<>();
+        /*List<Message> messages = dao.requestMessages(username);
+
+        for (Message message : messages) {
+            int toChat = message.getToChat();
+            map.putIfAbsent(toChat, new ArrayList<>());
+            map.get(toChat).add(message);
+        }*/
+        return map;
+    }
+
+    @Override
+    public List<Chat> loadChats(String username) {
+        //TODO
+        //return dao.requestChats(username);
+
+        return null;
+    }
+
+    @Override
+    public User loadUser(String username) {
+        //return UserDao.requestUser(username)
+        return null;
+    }
+
+
+    @Override
     public void registerClient(ClientCallback client) throws RemoteException {
         PropertyChangeListener listener;
 
@@ -62,25 +93,23 @@ public class RMIServerImpl implements RMIServer {
     }
 
     @Override
-    public String getStats() {
-        StringBuilder string = new StringBuilder();
-        string.append(clients.keySet().size());
-        string.append(" users -> ");
-        for (ClientCallback client : clients.keySet()) {
-            try {
-                string.append(client.getUsername());
-                string.append(" ");
-            } catch (RemoteException e) {
-                throw new RuntimeException(e);
-            }
-        }
-
-        return String.valueOf(string);
+    public Chat search(String username) throws RemoteException {
+        //TODO find user(if not existent return null), create a new chat in |Chat|, subscribe both users to this chat
+        return null;
     }
 
     @Override
-    public User search(String username) throws RemoteException {
+    public void addUser(String username, int id) {
         //TODO
-        return null;
+    }
+
+    @Override
+    public void leaveChat(String username, int id) {
+        //TODO
+    }
+
+    @Override
+    public void updateUser(String firstName, String lastName, String username, String password) {
+        //TODO
     }
 }
