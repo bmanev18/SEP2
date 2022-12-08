@@ -12,8 +12,9 @@ public class ModelImpl implements Model {
     private List<String> usernames;
 
 
+
     @Override
-    public void signUp(String firstName, String lastName, String username, String password) {
+    public synchronized void signUp(String firstName, String lastName, String username, String password) {
         try {
             DAOImpl.getInstance().create(firstName,lastName,username,password);
         } catch (SQLException e) {
@@ -23,7 +24,7 @@ public class ModelImpl implements Model {
     }
 
     @Override
-    public List<String> getAllUsername(){
+    public synchronized List<String> getAllUsername(){
         try {
             usernames = DAOImpl.getInstance().getUsernames();
         } catch (SQLException e) {
@@ -41,6 +42,33 @@ public class ModelImpl implements Model {
             throw new RuntimeException(e);
         }
         return password;
+    }
+
+    @Override
+    public void updatePasword(String username, String password) {
+        try {
+            DAOImpl.getInstance().updatePassword(username,password);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void updateFirstName(String username, String firstName) {
+        try {
+            DAOImpl.getInstance().updateFirstName(username,firstName);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void updateLastName(String username, String lastName) {
+        try {
+            DAOImpl.getInstance().updateLastName(username,lastName);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 

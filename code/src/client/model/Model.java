@@ -23,4 +23,8 @@ public interface Model extends Subject {
     void disconnect();
 
     String getPassword(String username);
+
+    void updatePassword(String username,String password);
+    void updateFirstName(String username,String firstName);
+    void updateLastName(String username,String lastName);
 }

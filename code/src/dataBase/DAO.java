@@ -12,4 +12,8 @@ public interface DAO{
     List<String> getUsernames() throws SQLException;
 
     String getPassword(String username) throws SQLException;
+
+    String updatePassword(String username,String password) throws SQLException;
+    String updateLastName(String username,String lastName) throws SQLException;
+    String updateFirstName(String username,String firstName) throws SQLException;
 }

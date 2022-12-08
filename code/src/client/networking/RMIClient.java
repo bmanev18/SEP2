@@ -15,6 +15,7 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
 
+
 public class RMIClient implements Client, ClientCallback {
     private RMIServer server;
     private PropertyChangeSupport support;
@@ -62,9 +63,6 @@ public class RMIClient implements Client, ClientCallback {
         System.out.println("Connected");
     }
 
-    private void denied(PropertyChangeEvent propertyChangeEvent) {
-        support.firePropertyChange("SignUpDenied",null,null);
-    }
 
     @Override
     public void addListener(String eventName, PropertyChangeListener listener) {
@@ -122,6 +120,37 @@ public class RMIClient implements Client, ClientCallback {
     public String getPassword(String username) {
         try {
             return server.getPassword(username);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
+    @Override
+    public void updatePassword(String username, String password) {
+        try {
+            server.updatePassword(username,password);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @Override
+    public void updateFirstName(String username, String firstName) {
+        try {
+            server.updateFirstname(username,firstName);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @Override
+    public void updateLastName(String username, String lastName) {
+        try {
+            server.updateLastname(username,lastName);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }

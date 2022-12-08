@@ -5,36 +5,61 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ada9f702-1ac5-45f6-9db1-65762b2be820" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/code/src/client/style/styleLogInView.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/client/style/styleSignUpView.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/client/style/styleUpdateView.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/client/views/updateView/UpdateViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/client/views/updateView/UpdateViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/client/views/updateView/updateView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/core/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/core/ViewHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/core/ViewModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/core/ViewModelFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/client/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/model/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/client/model/ModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/model/ModelManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/client/networking/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/networking/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/client/networking/RMIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/networking/RMIClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/views/login/LogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/login/LogIn.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/client/views/login/LogInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/login/LogInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/client/views/login/LogInViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/login/LogInViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/views/signUpView/SignUpViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/signUpView/SignUpViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/views/signUpView/SignUpViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/signUpView/SignUpViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/views/signUpView/signUpView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/signUpView/signUpView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/dataBase/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/dataBase/DAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/dataBase/DAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/dataBase/DAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/server/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/server/model/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/server/model/ModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/server/model/ModelImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/server/networking/RMIServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/server/networking/RMIServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/shared/networking/ClientCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/shared/networking/ClientCallback.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/shared/networking/RMIServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/shared/networking/RMIServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/core/ViewHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/core/ViewHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/core/ViewModelFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/core/ViewModelFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/model/Model.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/model/ModelManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/model/ModelManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/networking/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/networking/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/networking/RMIClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/networking/RMIClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/Chat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/Chat.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/login/LogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/login/LogIn.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/login/LogInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/login/LogInController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/login/LogInViewModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/login/LogInViewModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/signUpView/signUpView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/signUpView/signUpView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/dataBase/DAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/dataBase/DAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/dataBase/DAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/dataBase/DAOImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/server/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/server/model/Model.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/server/model/ModelImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/server/model/ModelImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/server/networking/RMIServerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/server/networking/RMIServerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/shared/networking/ClientCallback.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/shared/networking/ClientCallback.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/shared/networking/RMIServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/shared/networking/RMIServer.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="FxmlFile" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -91,6 +116,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Radoslav\Documents\GitHub\SEP2\code\src\client\style" />
       <recent name="C:\Users\Bozhidar Manev\Documents\GitHub\SEP2\code" />
     </key>
   </component>
@@ -171,6 +197,15 @@
       <workItem from="1670337102764" duration="2224000" />
       <workItem from="1670365439430" duration="46000" />
       <workItem from="1670415339383" duration="159000" />
+      <workItem from="1670422795157" duration="1690000" />
+      <workItem from="1670424518670" duration="8000" />
+      <workItem from="1670424539882" duration="2768000" />
+      <workItem from="1670427582967" duration="704000" />
+      <workItem from="1670452497688" duration="5742000" />
+      <workItem from="1670500084021" duration="798000" />
+      <workItem from="1670501315510" duration="8226000" />
+      <workItem from="1670514374347" duration="13000" />
+      <workItem from="1670516587267" duration="4329000" />
     </task>
     <servers />
   </component>

@@ -8,7 +8,7 @@ import java.util.List;
 public class SignUpViewModel {
     private Model model;
     public SignUpViewModel(Model model) {
-        this.model =model;
+        this.model = model;
     }
 
    public List<String> getUsernames(){

@@ -14,5 +14,4 @@ public interface ClientCallback extends Remote {
 
     String getUsername() throws RemoteException;
 
-    void signUp(String firstName, String lastName, String username, String password) throws RemoteException;
 }

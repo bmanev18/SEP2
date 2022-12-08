@@ -1,5 +1,6 @@
 package dataBase;
 
+import com.sun.source.tree.BreakTree;
 import server.model.User;
 
 import java.sql.*;
@@ -65,4 +66,35 @@ public class DAOImpl implements DAO {
         return password;
     }
 
+    @Override
+    public String updatePassword(String username, String password) throws SQLException {
+        try(Connection connection = getConnection()){
+            PreparedStatement statement = connection.prepareStatement("UPDATE users set password = ? where username = ?");
+            statement.setString(1,password);
+            statement.setString(2,username);
+            statement.executeUpdate();
+            return password;
+        }
+    }
+
+    @Override
+    public String updateLastName(String username, String lastName) throws SQLException {
+        try(Connection connection = getConnection()){
+            PreparedStatement statement = connection.prepareStatement("UPDATE users set lastname = ? where username = ?");
+            statement.setString(1,lastName);
+            statement.setString(2,username);
+            statement.executeUpdate();
+            return lastName;
+    }
+    }
+    @Override
+    public String updateFirstName(String username, String firstName) throws SQLException {
+        try(Connection connection = getConnection()){
+            PreparedStatement statement = connection.prepareStatement("UPDATE users set firstname = ? where username = ?");
+            statement.setString(1,firstName);
+            statement.setString(2,username);
+            statement.executeUpdate();
+            return firstName;
+        }
+    }
 }

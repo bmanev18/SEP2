@@ -63,6 +63,22 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public void updatePassword(String username, String password) {
+        client.updatePassword(username,password);
+    }
+
+    @Override
+    public void updateFirstName(String username, String firstName) {
+        client.updateFirstName(username,firstName);
+
+    }
+
+    @Override
+    public void updateLastName(String username, String lastName) {
+        client.updateLastName(username,lastName);
+    }
+
+    @Override
     public void requestStats() {
         String s = null;
 

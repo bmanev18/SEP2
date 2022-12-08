@@ -110,6 +110,22 @@ public class RMIServerImpl implements RMIServer{
     }
 
     @Override
+    public void updatePassword(String username, String password){
+        model.updatePasword(username,password);
+    }
+
+    @Override
+    public void updateFirstname(String username, String firstName){
+        model.updateFirstName(username,firstName);
+
+    }
+
+    @Override
+    public void updateLastname(String username, String lastName){
+        model.updateLastName(username,lastName);
+    }
+
+    @Override
     public void signUp(String firstName, String lastName, String username, String password) {
         model.signUp(firstName,lastName,username,password);
     }

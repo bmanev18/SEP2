@@ -1,0 +1,61 @@
+.root{
+    -fx-background-image: url("background.gif");
+    -fx-font-family: 'Courier New'
+}
+#welcomeLogin{
+    -fx-font-size: 30px;
+    -fx-text-fill: orange;
+}
+#usernameField{
+    -fx-border-color: orange;
+    -fx-border-width: 0 0 1 0; // top, right, bottom, left;
+    -fx-background-color: transparent;
+    -fx-text-fill: orange;
+    -fx-font-family: 'Turret Road', cursive;
+}
+#passwordField{
+    -fx-border-color: orange;
+    -fx-border-width: 0 0 1 0; // top, right, bottom, left;
+    -fx-background-color: transparent;
+    -fx-text-fill:orange;
+}
+#passwordLabel{
+    -fx-text-fill: orange;
+}
+#usernameLabel{
+    -fx-text-fill: orange;
+}
+#enterButton{
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-text-fill: orange;
+}
+#signUpButton{
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-text-fill: orange;
+
+}
+#signUpButton:hover{
+    -fx-border-color:white;
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 0 0 1 0, 0;
+    -fx-text-fill: orange;
+    -fx-underline: true;
+}
+#enterButton:hover {
+    -fx-border-color: white;
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 0 0 1 0, 0;
+    -fx-underline: true;
+}
+.button{
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-text-fill: orange;
+}
