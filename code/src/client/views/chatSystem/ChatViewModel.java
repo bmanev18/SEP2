@@ -9,6 +9,7 @@ import javafx.collections.ObservableList;
 import shared.util.Message;
 
 import java.beans.PropertyChangeEvent;
+import java.rmi.RemoteException;
 
 public class ChatViewModel {
     private Model model;
@@ -45,5 +46,9 @@ public class ChatViewModel {
 
     public void requestStats() {
         model.requestStats();
+    }
+
+    public void disconnect(){
+        model.disconnect();
     }
 }

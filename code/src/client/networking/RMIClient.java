@@ -1,9 +1,11 @@
 package client.networking;
 
+import server.networking.RMIServerImpl;
 import shared.networking.ClientCallback;
 import shared.networking.RMIServer;
 import shared.util.Message;
 
+import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.rmi.NotBoundException;
@@ -11,6 +13,8 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.List;
+
 
 public class RMIClient implements Client, ClientCallback {
     private RMIServer server;
@@ -59,6 +63,7 @@ public class RMIClient implements Client, ClientCallback {
         System.out.println("Connected");
     }
 
+
     @Override
     public void addListener(String eventName, PropertyChangeListener listener) {
         support.addPropertyChangeListener(eventName, listener);
@@ -76,16 +81,78 @@ public class RMIClient implements Client, ClientCallback {
     }
 
     @Override
-    public String requestStats() {
+    public String requestStats() throws RemoteException {
+        return server.getStats();
+    }
+
+    @Override
+    public void signUp(String firstName, String lastName, String username, String password){
         try {
-            return server.getStats();
+            server.signUp(firstName,lastName,username,password);
         } catch (RemoteException e) {
-            throw new RuntimeException("Can not return stats");
+            throw new RuntimeException(e);
         }
     }
 
     @Override
-    public String getUsername() throws RemoteException {
+    public String getUsername(){
         return username;
+    }
+    @Override
+    public List<String> getUsernames() {
+        try {
+            return server.getAllUsernames();
+        } catch (RemoteException e) {
+            throw new RuntimeException();
+        }
+    }
+
+    @Override
+    public void disconnect(ClientCallback Callback) {
+        try {
+            server.disconnect(this);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public String getPassword(String username) {
+        try {
+            return server.getPassword(username);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
+    @Override
+    public void updatePassword(String username, String password) {
+        try {
+            server.updatePassword(username,password);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @Override
+    public void updateFirstName(String username, String firstName) {
+        try {
+            server.updateFirstname(username,firstName);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    @Override
+    public void updateLastName(String username, String lastName) {
+        try {
+            server.updateLastname(username,lastName);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -1,4 +1,86 @@
 package server.model;
 
-public class ModelImpl {
+import dataBase.DAOImpl;
+
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+import java.sql.SQLException;
+import java.util.List;
+
+public class ModelImpl implements Model {
+    private PropertyChangeSupport support = new PropertyChangeSupport(this);
+    private List<String> usernames;
+
+
+
+    @Override
+    public synchronized void signUp(String firstName, String lastName, String username, String password) {
+        try {
+            DAOImpl.getInstance().create(firstName,lastName,username,password);
+        } catch (SQLException e) {
+            support.firePropertyChange("SignUpDenied",null,null);
+            System.out.println("Database Could Not Be Reached");
+        }
+    }
+
+    @Override
+    public synchronized List<String> getAllUsername(){
+        try {
+            usernames = DAOImpl.getInstance().getUsernames();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return usernames;
+    }
+
+    @Override
+    public String getPassword(String username) {
+        String password = " ";
+        try {
+            password = DAOImpl.getInstance().getPassword(username);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return password;
+    }
+
+    @Override
+    public void updatePasword(String username, String password) {
+        try {
+            DAOImpl.getInstance().updatePassword(username,password);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void updateFirstName(String username, String firstName) {
+        try {
+            DAOImpl.getInstance().updateFirstName(username,firstName);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void updateLastName(String username, String lastName) {
+        try {
+            DAOImpl.getInstance().updateLastName(username,lastName);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    @Override
+    public void addListener(String eventName, PropertyChangeListener listener) {
+        support.addPropertyChangeListener(eventName,listener);
+
+    }
+
+    @Override
+    public void removeListener(String eventName, PropertyChangeListener listener) {
+        support.removePropertyChangeListener(eventName,listener);
+
+    }
 }

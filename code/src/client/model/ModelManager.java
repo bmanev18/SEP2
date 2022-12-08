@@ -1,12 +1,15 @@
 package client.model;
 
 import client.networking.Client;
+import shared.networking.ClientCallback;
 import shared.networking.RMIServer;
 import shared.util.Message;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.rmi.RemoteException;
+import java.util.List;
 
 public class ModelManager implements Model {
     private PropertyChangeSupport support;
@@ -20,8 +23,7 @@ public class ModelManager implements Model {
         client.addListener("NewMessage", this::receive);
         username = "none";
     }
-
-
+    
     @Override
     public void send(String text) {
         client.toCallback(new Message(text, username));
@@ -41,12 +43,55 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public void signUp(String firstName,String lastName,String username,String password){
+        client.signUp(firstName,lastName,username,password);
+    }
+
+    @Override
+    public List<String> getUsernames() {
+        return client.getUsernames();
+    }
+
+    @Override
+    public void disconnect(){
+        client.disconnect((ClientCallback) client);
+    }
+
+    @Override
+    public String getPassword(String username) {
+        return client.getPassword(username);
+    }
+
+    @Override
+    public void updatePassword(String username, String password) {
+        client.updatePassword(username,password);
+    }
+
+    @Override
+    public void updateFirstName(String username, String firstName) {
+        client.updateFirstName(username,firstName);
+
+    }
+
+    @Override
+    public void updateLastName(String username, String lastName) {
+        client.updateLastName(username,lastName);
+    }
+
+    @Override
     public void requestStats() {
-        String s = client.requestStats();
+        String s = null;
+
+        try {
+            s = client.requestStats();
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
         Message message = new Message(s, "Server says");
         support.firePropertyChange("MessageReceived", null, message);
 
     }
+
 
     @Override
     public void addListener(String eventName, PropertyChangeListener listener) {

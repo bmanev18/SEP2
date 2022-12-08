@@ -3,11 +3,15 @@ package client.core;
 import client.views.chatSystem.ChatViewModel;
 import client.views.login.LogInViewModel;
 import client.views.signUpView.SignUpViewModel;
+import client.views.updateView.UpdateViewController;
+import client.views.updateView.UpdateViewModel;
 
 public class ViewModelFactory {
     private ModelFactory mf;
     private ChatViewModel chatViewModel;
     private LogInViewModel logInViewModel;
+
+    private UpdateViewModel updateViewModel;
 
     private SignUpViewModel signUpViewModel;
 
@@ -34,5 +38,11 @@ public class ViewModelFactory {
             signUpViewModel = new SignUpViewModel(mf.getModel());
         }
         return signUpViewModel;
+    }
+    public UpdateViewModel getUpdateViewModel(){
+        if (updateViewModel == null){
+            updateViewModel = new UpdateViewModel(mf.getModel());
+        }
+        return updateViewModel;
     }
 }
