@@ -1,8 +1,9 @@
 package server.model;
 
+import client.model.Chat;
 import shared.Subject;
+import shared.util.Message;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public interface Model extends Subject {
@@ -12,7 +13,21 @@ public interface Model extends Subject {
 
     String getPassword(String username);
 
-    void updatePasword(String username,String password);
+    void updatePassword(String username, String password);
     void updateFirstName(String username,String firstName);
     void updateLastName(String username,String lastName);
+
+    //B
+
+    List<Message> loadMessages(String username);
+
+    List<Chat> loadChats(String username);
+
+    User loadUser(String username);
+
+    Chat createChatWith(String creator, String username);
+
+    void addUser(String username, int id);
+
+    void leaveChat(String username, int id);
 }

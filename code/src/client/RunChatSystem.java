@@ -2,7 +2,7 @@ package client;
 
 import javafx.application.Application;
 
-public class runChatSystem {
+public class RunChatSystem {
     public static void main(String[] args) {
         Application.launch(ChatSystem.class);
     }

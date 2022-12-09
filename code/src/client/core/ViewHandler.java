@@ -1,6 +1,6 @@
 package client.core;
 
-import client.views.chatSystem.ChatController;
+import client.views.chatSystem.MainController;
 import client.views.login.LogInController;
 import client.views.signUpView.SignUpViewController;
 import client.views.updateView.UpdateViewController;
@@ -58,13 +58,13 @@ public class ViewHandler {
     public void openChatView() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("../views/chatSystem/Chat.fxml"));
+            loader.setLocation(getClass().getResource("../views/chatSystem/main.fxml"));
             Parent root = loader.load();
 
-            ChatController chatController = loader.getController();
-            chatController.innit(vmf.getChatViewModel());
+            MainController mainController = loader.getController();
+            mainController.innit(vmf.getMainViewModel());
             stage.setOnCloseRequest(e -> {
-                vmf.getChatViewModel().disconnect();
+                vmf.getMainViewModel().disconnect();
                 Platform.exit();
             });
 

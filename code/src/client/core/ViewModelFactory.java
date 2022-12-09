@@ -1,14 +1,13 @@
 package client.core;
 
-import client.views.chatSystem.ChatViewModel;
+import client.views.chatSystem.MainViewModel;
 import client.views.login.LogInViewModel;
 import client.views.signUpView.SignUpViewModel;
-import client.views.updateView.UpdateViewController;
 import client.views.updateView.UpdateViewModel;
 
 public class ViewModelFactory {
     private ModelFactory mf;
-    private ChatViewModel chatViewModel;
+    private MainViewModel mainViewModel;
     private LogInViewModel logInViewModel;
 
     private UpdateViewModel updateViewModel;
@@ -20,11 +19,11 @@ public class ViewModelFactory {
         this.mf = mf;
     }
 
-    public ChatViewModel getChatViewModel() {
-        if (chatViewModel == null) {
-            chatViewModel = new ChatViewModel(mf.getModel());
+    public MainViewModel getMainViewModel() {
+        if (mainViewModel == null) {
+            mainViewModel = new MainViewModel(mf.getModel());
         }
-        return chatViewModel;
+        return mainViewModel;
     }
 
     public LogInViewModel getLogInViewModel() {

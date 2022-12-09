@@ -2,43 +2,40 @@ package shared.util;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
+import java.util.Date;
 
-public class Message implements Serializable
-{
-  private String username;
-  private String messageBody;
-  private LocalDateTime dateTime;
+public class Message implements Serializable {
+    private String sender;
+    private String messageBody;
+    private int toChat;
+    private String datetime;
 
+    public Message(String sender, int toChat, String messageBody) {
+        this.sender = sender;
+        this.messageBody = messageBody;
+        this.toChat = toChat;
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        datetime = formatter.format(new Date());
+    }
 
-  public Message(String messageBody, String username)
-  {
-    this.username = username;
-    this.messageBody = messageBody;
-    this.dateTime = LocalDateTime.now();
-  }
+    public String getMessageBody() {
+        return messageBody;
+    }
 
-  public String getMessageBody()
-  {
-    return messageBody;
-  }
+    public String getSender() {
+        return sender;
+    }
 
-  public String getUsername()
-  {
-    return username;
-  }
+    public int getToChat() {
+        return toChat;
+    }
 
-  SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public String dateTime() {
+        return datetime;
+    }
 
-  public String dateTime()
-  {
-    String frmtdDate = dateFormat.format(dateTime);
-
-    return frmtdDate;
-  }
-
-  @Override public String toString()
-  {
-    return String.format("%s: %s", username, messageBody);
-  }
+    @Override
+    public String toString() {
+        return String.format("%s -> %d : %s", sender, toChat, messageBody);
+    }
 }

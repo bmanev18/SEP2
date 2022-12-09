@@ -27,7 +27,7 @@ public class MessageDAOImpl implements MessageDAO
   {
     return DriverManager.getConnection(
         "jdbc:postgresql://localhost:5432/sep2_database?currentSchema=sep2_database",
-        "postgres", "admin");
+        "postgres", "2121");
   }
 
   @Override public Message createMessage(Message message, int chat)
@@ -36,18 +36,24 @@ public class MessageDAOImpl implements MessageDAO
     try (Connection connection = getConnection())
     {
       PreparedStatement statement = connection.prepareStatement(
-          "INSERT INTO messages(sender,toChat,text,datetime,ID) VALUES (?,?,?,?,?)");
-      statement.setString(1, message.getUsername());
+          "INSERT INTO messages(sender,toChat,text,datetime) VALUES (?,?,?,?)", PreparedStatement.RETURN_GENERATED_KEYS);
+      statement.setString(1, message.getSender());
       statement.setInt(2, message.getToChat());
       statement.setString(3, message.getMessageBody());
       statement.setString(4, message.dateTime());
       statement.execute();
     }
-    return new Message(message.getMessageBody(), message.getUsername(),message.getToChat());
+    return new Message(message.getSender(), message.getToChat(), message.getMessageBody());
   }
 
   @Override public List<Message> requestData(String user)
   {
+    return null;
+  }
+
+  @Override
+  public List<Message> loadMessages(String username) {
+//TODO
     return null;
   }
 

@@ -4,7 +4,7 @@ import server.model.User;
 
 import java.sql.SQLException;
 
-public interface userDAO
+public interface UserDAO
 {
     User create() throws SQLException;
     User findUser(String user) throws SQLException;

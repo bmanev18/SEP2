@@ -39,11 +39,11 @@ public class SignUpViewController {
             viewHandler.openAnAlertBox("Username must be no longer than 15 symbols", "Invalid Username");
             passwordField.clear();
 
-        } else if(viewModel.getUsernames().contains(usernameField.getText())){
+        }/* else if(viewModel.getUsernames().contains(usernameField.getText())){
             viewHandler.openAnAlertBox("Username "+ usernameField.getText() + " is already taken.", "Invalid Username");
             usernameField.clear();
 
-        } else {
+        } */else {
             viewModel.signUp(firstNameField.getText(),lastNameField.getText(),usernameField.getText(),passwordField.getText());
             viewHandler.openAnAlertBox("Signed up successfully","Signed Up");
             viewHandler.openLogInView();

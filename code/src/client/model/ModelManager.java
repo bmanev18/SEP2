@@ -1,8 +1,8 @@
 package client.model;
 
 import client.networking.Client;
+import server.model.User;
 import shared.networking.ClientCallback;
-import shared.networking.RMIServer;
 import shared.util.Message;
 
 import java.beans.PropertyChangeEvent;
@@ -10,10 +10,12 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.rmi.RemoteException;
 import java.util.List;
+import java.util.Map;
 
 public class ModelManager implements Model {
     private PropertyChangeSupport support;
     private Client client;
+    private ChatHistory chatHistory;
     private String username;
 
     public ModelManager(Client client) {
@@ -21,24 +23,29 @@ public class ModelManager implements Model {
         client.startClient();
         support = new PropertyChangeSupport(this);
         client.addListener("NewMessage", this::receive);
-        username = "none";
+        chatHistory = new ChatHistory();
+        username = null;
     }
     
     @Override
-    public void send(String text) {
-        client.toCallback(new Message(text, username));
+    public void send(Message message) {
+        /*Message message = chatHistory.send(text);
+        client.toCallback(message);
+        return message;*/
+        client.toCallback(message);
+
     }
 
     @Override
     public void receive(PropertyChangeEvent event) {
         Message msg = (Message) event.getNewValue();
-        System.out.println("Model Manager::receive " + msg);
+        //chatHistory.receive(event);
         support.firePropertyChange("MessageReceived", null, msg);
+        System.out.println("Model Manager::receive " + msg);
     }
 
     @Override
     public void changeUsername(String username) {
-        client.changeUsername(username);
         this.username = username;
     }
 
@@ -78,20 +85,52 @@ public class ModelManager implements Model {
         client.updateLastName(username,lastName);
     }
 
+    //B
+
     @Override
-    public void requestStats() {
-        String s = null;
-
-        try {
-            s = client.requestStats();
-        } catch (RemoteException e) {
-            throw new RuntimeException(e);
-        }
-        Message message = new Message(s, "Server says");
-        support.firePropertyChange("MessageReceived", null, message);
-
+    public void changeCurrentChat(Chat chat) {
+        //chatHistory.changeCurrentChat(chat);
     }
 
+    @Override
+    public Chat startChatWith(String username) {
+        try {
+            return client.startChatWith(this.username,username);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+            //TODO pop up
+        }
+    }
+
+    @Override
+    public User startChatWith() {
+        return client.loadUser(username);
+    }
+
+    @Override
+    public void addUser(User user, Chat chat) {
+        client.addUser(user.getUsername(), chat.getId());
+    }
+
+    @Override
+    public void leaveChat(String username, int id) {
+        client.leaveChat(username, id);
+    }
+
+    @Override
+    public List<Chat> loadChats() {
+        return client.loadChats(username);
+    }
+
+    @Override
+    public Map<Integer, List<Message>> loadMessages() {
+        return client.loadMessages(username);
+    }
+
+    @Override
+    public void updateUser(String firstName, String lastName, String username, String password) {
+        client.updateUser(firstName, lastName, username, password);
+    }
 
     @Override
     public void addListener(String eventName, PropertyChangeListener listener) {

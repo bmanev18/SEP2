@@ -12,7 +12,7 @@
    <children>
       <Label layoutX="36.0" layoutY="20.0" prefHeight="45.0" prefWidth="329.0" text="Update Credentials">
          <font>
-            <Font name="Courier New Bold" size="30.0" />
+            <Font name="Courier New" size="30.0" />
          </font>
       </Label>
       <Label layoutX="19.0" layoutY="206.0" prefHeight="17.0" prefWidth="149.0" text="New LastName" />

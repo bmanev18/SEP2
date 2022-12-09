@@ -31,5 +31,4 @@
       <font>
          <Font size="30.0" />
       </font></Label>
-   <Button layoutX="121.0" layoutY="114.0" mnemonicParsing="false" onAction="#openUpdate" text="test" />
 </AnchorPane>

@@ -1,11 +1,11 @@
 package client.networking;
 
-import server.networking.RMIServerImpl;
+import client.model.Chat;
+import server.model.User;
 import shared.networking.ClientCallback;
 import shared.networking.RMIServer;
 import shared.util.Message;
 
-import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.rmi.NotBoundException;
@@ -14,6 +14,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.List;
+import java.util.Map;
 
 
 public class RMIClient implements Client, ClientCallback {
@@ -28,11 +29,6 @@ public class RMIClient implements Client, ClientCallback {
 
     @Override
     public void toCallback(Message message) {
-        send(message);
-    }
-
-    @Override
-    public void send(Message message) {
         try {
             server.broadcast(message);
         } catch (RemoteException e) {
@@ -81,23 +77,19 @@ public class RMIClient implements Client, ClientCallback {
     }
 
     @Override
-    public String requestStats() throws RemoteException {
-        return server.getStats();
-    }
-
-    @Override
-    public void signUp(String firstName, String lastName, String username, String password){
+    public void signUp(String firstName, String lastName, String username, String password) {
         try {
-            server.signUp(firstName,lastName,username,password);
+            server.signUp(firstName, lastName, username, password);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
     }
 
     @Override
-    public String getUsername(){
+    public String getUsername() {
         return username;
     }
+
     @Override
     public List<String> getUsernames() {
         try {
@@ -126,11 +118,10 @@ public class RMIClient implements Client, ClientCallback {
     }
 
 
-
     @Override
     public void updatePassword(String username, String password) {
         try {
-            server.updatePassword(username,password);
+            server.updatePassword(username, password);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
@@ -140,7 +131,7 @@ public class RMIClient implements Client, ClientCallback {
     @Override
     public void updateFirstName(String username, String firstName) {
         try {
-            server.updateFirstname(username,firstName);
+            server.updateFirstname(username, firstName);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
@@ -150,7 +141,68 @@ public class RMIClient implements Client, ClientCallback {
     @Override
     public void updateLastName(String username, String lastName) {
         try {
-            server.updateLastname(username,lastName);
+            server.updateLastname(username, lastName);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    //B
+
+    @Override
+    public Chat startChatWith(String creator, String username) throws RemoteException {
+        return server.startChatWith(creator, username);
+    }
+
+    @Override
+    public void addUser(String username, int id) {
+        try {
+            server.addUser(username, id);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void leaveChat(String username, int id) {
+        try {
+            server.leaveChat(username, id);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Chat> loadChats(String username) {
+        try {
+            return server.loadChats(username);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public Map<Integer, List<Message>> loadMessages(String username) {
+        try {
+            return server.loadMessages(username);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public User loadUser(String username) {
+        try {
+            return server.loadUser(username);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void updateUser(String firstName, String lastName, String username, String password) {
+        try {
+            server.updateUser(firstName, lastName, username, password);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
