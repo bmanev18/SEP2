@@ -3,6 +3,7 @@ package dataBase;
 import shared.util.Message;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MessageDAOImpl implements MessageDAO
@@ -43,12 +44,29 @@ public class MessageDAOImpl implements MessageDAO
       statement.setString(4, message.dateTime());
       statement.execute();
     }
-    return new Message(message.getMessageBody(), message.getUsername(),message.getToChat());
+    return new Message(message.getMessageBody(), message.getUsername(),
+        message.getToChat());
   }
 
-  @Override public List<Message> requestData(String user)
+  @Override public List<Message> requestData(String user) throws SQLException
   {
-    return null;
+    try (Connection connection = getConnection())
+    {
+      PreparedStatement statement = connection.prepareStatement(
+          "SELECT * FROM messages JOIN receivers ON sender= username WHERE username=?");//needs checking
+      statement.setString(1, "%" + user + "%");
+      ResultSet resultSet = statement.executeQuery();
+      ArrayList<Message> result = new ArrayList<>();
+      while (resultSet.next())
+      {
+        String text = resultSet.getString("text");
+        String name = resultSet.getString("username");
+        int id = resultSet.getInt("id");//needs checking
+        Message message = new Message(text, name, id);
+        result.add(message);
+      }
+      return result;
+    }
   }
 
 }
