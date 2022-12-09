@@ -8,6 +8,6 @@ import java.util.List;
 public interface MessageDAO
 {
   Message createMessage(Message message, int chat) throws SQLException;
-  List<Message> requestData(String user);
-  // void deleteMessage(Message message) throws  SQLException;
+  List<Message> requestData(String user) throws SQLException;
+
 }
