@@ -11,11 +11,16 @@ public class Message implements Serializable {
     private String datetime;
 
     public Message(String sender, int toChat, String messageBody) {
+        this(sender, toChat, messageBody, new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()));
+    }
+
+    public Message(String sender, int toChat, String messageBody, String datetime) {
         this.sender = sender;
         this.messageBody = messageBody;
         this.toChat = toChat;
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        datetime = formatter.format(new Date());
+        this.datetime = datetime;
+
+
     }
 
     public String getMessageBody() {
@@ -30,12 +35,16 @@ public class Message implements Serializable {
         return toChat;
     }
 
-    public String dateTime() {
+    public String getDateTime() {
         return datetime;
     }
 
     @Override
     public String toString() {
-        return String.format("%s -> %d : %s", sender, toChat, messageBody);
+        if (sender.equals("server")) {
+            return String.format("%s", messageBody);
+        } else {
+            return String.format("%s -> %s", sender, messageBody);
+        }
     }
 }

@@ -5,36 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ada9f702-1ac5-45f6-9db1-65762b2be820" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/postgresql_42_5_1_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/client/RunChatSystem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/client/model/Chat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/client/model/ChatHistory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/client/views/chatSystem/MainController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/client/views/chatSystem/MainViewModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/client/views/chatSystem/main.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/dataBase/ChatDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/src/dataBase/ChatDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SEP2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SEP2.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/postgresql_42_2_27_jre7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/client/views/addUser/AddUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/client/views/addUser/AddUserViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/src/client/views/addUser/addUserView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/RunChatSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/RunChatSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/client/core/ViewHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/core/ViewHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/client/core/ViewModelFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/core/ViewModelFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/model/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/model/Chat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/client/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/model/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/client/model/ModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/model/ModelManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/client/networking/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/networking/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/client/networking/RMIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/networking/RMIClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/client/runChatSystem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/client/views/chatSystem/Chat.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/client/views/chatSystem/ChatController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/client/views/chatSystem/ChatViewModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/views/chatSystem/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/chatSystem/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/views/chatSystem/MainViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/chatSystem/MainViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/views/chatSystem/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/chatSystem/mainView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/client/views/signUpView/SignUpViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/signUpView/SignUpViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/dataBase/MessageDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/dataBase/MessageDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/dataBase/MessageDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/dataBase/MessageDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/dataBase/RecieverDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/dataBase/RecieverDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/dataBase/RecieverDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/dataBase/RecieverDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/dataBase/userDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/dataBase/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/src/dataBase/userDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/dataBase/UserDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/views/signUpView/SignUpViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/signUpView/SignUpViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/views/signUpView/signUpView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/signUpView/signUpView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/dataBase/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/dataBase/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/dataBase/DAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/dataBase/DAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/server/model/Broadcast.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/server/model/Broadcast.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/server/model/BroadcastImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/server/model/BroadcastImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/server/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/server/model/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/server/model/ModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/server/model/ModelImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/server/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/server/model/User.java" afterDir="false" />
@@ -42,20 +34,32 @@
       <change beforePath="$PROJECT_DIR$/code/src/shared/networking/ClientCallback.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/shared/networking/ClientCallback.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/shared/networking/RMIServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/shared/networking/RMIServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/src/shared/util/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/shared/util/Message.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/core/ViewHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/core/ViewHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/core/ViewModelFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/core/ViewModelFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extra/Domain model.asta" beforeDir="false" afterPath="$PROJECT_DIR$/extra/Domain model.asta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/model/Chat.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/model/Chat.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/model/Model.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/model/ModelManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/model/ModelManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/networking/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/networking/Client.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/networking/RMIClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/networking/RMIClient.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/runChatSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/runChatSystem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/Chat.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/ChatController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/ChatViewModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/login/LogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/login/LogIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/MainViewModel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/MainViewModel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/MainViewModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/MainViewModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/chatSystem/main.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/signUpView/SignUpViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/signUpView/SignUpViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/updateView/updateView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/updateView/updateView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/signUpView/SignUpViewModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/signUpView/SignUpViewModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/client/views/signUpView/signUpView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/client/views/signUpView/signUpView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/dataBase/ChatDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/dataBase/ChatDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/dataBase/DAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/dataBase/DAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/dataBase/DAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/dataBase/DAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/dataBase/MessageDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/dataBase/MessageDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/dataBase/RecieverDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/dataBase/RecieverDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/dataBase/UserDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/dataBase/UserDAOImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/server/model/Broadcast.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/server/model/Broadcast.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2/server/model/BroadcastImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/server/model/BroadcastImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/server/model/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/server/model/Model.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/server/model/ModelImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/server/model/ModelImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/server/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/server/model/User.class" afterDir="false" />
@@ -63,6 +67,19 @@
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/shared/networking/ClientCallback.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/shared/networking/ClientCallback.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/shared/networking/RMIServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/shared/networking/RMIServer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SEP2/shared/util/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2/shared/util/Message.class" afterDir="false" />
+    </list>
+    <list id="fec108a5-d666-4809-a7cf-954dbd228c8e" name="Changes by radkoto123" comment="">
+      <change beforePath="$PROJECT_DIR$/code/src/client/model/ModelManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/model/ModelManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/networking/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/networking/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/networking/RMIClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/networking/RMIClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/views/signUpView/SignUpViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/signUpView/SignUpViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/client/views/signUpView/SignUpViewModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/client/views/signUpView/SignUpViewModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/dataBase/DAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/dataBase/DAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/server/model/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/server/model/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/server/model/ModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/server/model/ModelImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/server/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/server/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/server/networking/RMIServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/server/networking/RMIServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/src/shared/networking/RMIServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/code/src/shared/networking/RMIServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,11 +89,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Interface" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -99,6 +119,159 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/code/src/client/networking/Client.java">
+      <ranges>
+        <range start1="3" end1="3" start2="3" end2="4" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="7" end1="8" start2="8" end2="8" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="18" end1="20" start2="18" end2="18" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="22" end1="23" start2="20" end2="21" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="24" end1="25" start2="22" end2="23" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="28" end1="29" start2="26" end2="27" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="32" end1="35" start2="30" end2="35" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="38" end1="39" start2="38" end2="39" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="40" end1="41" start2="40" end2="41" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="51" end1="51" start2="51" end2="55" changelist="fec108a5-d666-4809-a7cf-954dbd228c8e" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/code/src/client/views/signUpView/SignUpViewModel.java">
+      <ranges>
+        <range start1="3" end1="3" start2="3" end2="4" changelist="fec108a5-d666-4809-a7cf-954dbd228c8e" />
+        <range start1="4" end1="5" start2="5" end2="5" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="20" end1="20" start2="20" end2="23" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/code/src/dataBase/DAO.java">
+      <ranges>
+        <range start1="9" end1="11" start2="9" end2="11" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="13" end1="13" start2="13" end2="15" changelist="fec108a5-d666-4809-a7cf-954dbd228c8e" />
+        <range start1="16" end1="20" start2="18" end2="23" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="21" end1="22" start2="24" end2="25" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="23" end1="25" start2="26" end2="29" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="28" end1="29" start2="32" end2="32" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="30" end1="30" start2="33" end2="34" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="32" end1="33" start2="36" end2="36" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="34" end1="34" start2="37" end2="41" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/code/src/server/model/Model.java">
+      <ranges>
+        <range start1="4" end1="4" start2="4" end2="5" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="9" end1="10" start2="10" end2="11" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="12" end1="12" start2="13" end2="15" changelist="fec108a5-d666-4809-a7cf-954dbd228c8e" />
+        <range start1="16" end1="18" start2="19" end2="23" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="19" end1="19" start2="24" end2="25" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="20" end1="20" start2="26" end2="29" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="25" end1="26" start2="34" end2="35" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="27" end1="28" start2="36" end2="37" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="32" end1="32" start2="41" end2="49" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/code/src/server/model/User.java">
+      <ranges>
+        <range start1="2" end1="3" start2="2" end2="5" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="34" end1="34" start2="36" end2="40" changelist="fec108a5-d666-4809-a7cf-954dbd228c8e" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/code/src/shared/networking/RMIServer.java">
+      <ranges>
+        <range start1="18" end1="20" start2="18" end2="18" changelist="fec108a5-d666-4809-a7cf-954dbd228c8e" />
+        <range start1="24" end1="25" start2="22" end2="23" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="28" end1="31" start2="26" end2="31" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="38" end1="39" start2="38" end2="39" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="40" end1="41" start2="40" end2="41" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="44" end1="45" start2="44" end2="45" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="47" end1="47" start2="47" end2="51" changelist="fec108a5-d666-4809-a7cf-954dbd228c8e" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/code/src/client/views/signUpView/SignUpViewController.java">
+      <ranges>
+        <range start1="25" end1="26" start2="25" end2="32" changelist="fec108a5-d666-4809-a7cf-954dbd228c8e" />
+        <range start1="27" end1="29" start2="33" end2="48" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="32" end1="46" start2="51" end2="52" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="52" end1="57" start2="58" end2="60" changelist="fec108a5-d666-4809-a7cf-954dbd228c8e" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/code/src/server/networking/RMIServerImpl.java">
+      <ranges>
+        <range start1="32" end1="32" start2="32" end2="33" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="65" end1="66" start2="66" end2="68" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="68" end1="69" start2="70" end2="70" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="74" end1="75" start2="75" end2="91" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="78" end1="79" start2="94" end2="95" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="82" end1="86" start2="98" end2="103" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="136" end1="138" start2="153" end2="155" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="141" end1="145" start2="158" end2="163" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="154" end1="157" start2="172" end2="181" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="158" end1="158" start2="182" end2="193" changelist="fec108a5-d666-4809-a7cf-954dbd228c8e" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/code/src/client/model/ModelManager.java">
+      <ranges>
+        <range start1="4" end1="5" start2="4" end2="4" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="25" end1="25" start2="24" end2="26" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="28" end1="29" start2="29" end2="30" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="35" end1="36" start2="36" end2="36" changelist="fec108a5-d666-4809-a7cf-954dbd228c8e" />
+        <range start1="41" end1="42" start2="41" end2="41" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="46" end1="46" start2="45" end2="54" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="52" end1="54" start2="60" end2="62" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="62" end1="64" start2="70" end2="72" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="73" end1="74" start2="81" end2="82" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="78" end1="79" start2="86" end2="87" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="84" end1="85" start2="92" end2="93" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="95" end1="96" start2="103" end2="104" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="97" end1="98" start2="105" end2="107" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="100" end1="101" start2="109" end2="109" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="104" end1="109" start2="112" end2="112" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="111" end1="112" start2="114" end2="115" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="143" end1="143" start2="146" end2="165" changelist="fec108a5-d666-4809-a7cf-954dbd228c8e" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/code/src/client/networking/RMIClient.java">
+      <ranges>
+        <range start1="40" end1="41" start2="40" end2="41" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="44" end1="46" start2="44" end2="47" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="47" end1="47" start2="48" end2="53" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="87" end1="91" start2="93" end2="93" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="102" end1="103" start2="104" end2="105" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="104" end1="105" start2="106" end2="107" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="152" end1="154" start2="154" end2="157" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="157" end1="158" start2="160" end2="161" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="195" end1="196" start2="198" end2="199" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="200" end1="200" start2="203" end2="221" changelist="fec108a5-d666-4809-a7cf-954dbd228c8e" />
+      </ranges>
+    </file>
+    <file path="$PROJECT_DIR$/code/src/server/model/ModelImpl.java">
+      <ranges>
+        <range start1="4" end1="4" start2="4" end2="5" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="9" end1="9" start2="10" end2="12" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="10" end1="10" start2="13" end2="14" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="12" end1="13" start2="16" end2="18" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="15" end1="15" start2="20" end2="24" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="35" end1="35" start2="44" end2="54" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="38" end1="39" start2="57" end2="57" changelist="fec108a5-d666-4809-a7cf-954dbd228c8e" />
+        <range start1="40" end1="41" start2="58" end2="59" changelist="fec108a5-d666-4809-a7cf-954dbd228c8e" />
+        <range start1="44" end1="45" start2="62" end2="62" changelist="fec108a5-d666-4809-a7cf-954dbd228c8e" />
+        <range start1="73" end1="74" start2="90" end2="90" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="76" end1="76" start2="92" end2="117" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="78" end1="79" start2="119" end2="119" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="80" end1="81" start2="120" end2="121" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="82" end1="83" start2="122" end2="123" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="85" end1="86" start2="125" end2="125" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="93" end1="94" start2="132" end2="133" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="101" end1="102" start2="140" end2="141" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="105" end1="106" start2="144" end2="145" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="107" end1="108" start2="146" end2="147" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="114" end1="115" start2="153" end2="154" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="117" end1="118" start2="156" end2="157" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="121" end1="122" start2="160" end2="161" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="124" end1="126" start2="163" end2="165" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="138" end1="139" start2="177" end2="178" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="148" end1="149" start2="187" end2="188" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+        <range start1="153" end1="153" start2="192" end2="217" changelist="ada9f702-1ac5-45f6-9db1-65762b2be820" />
+      </ranges>
+    </file>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -113,6 +286,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
     "last_opened_file_path": "C:/Users/Bozhidar Manev/Downloads/postgresql-42.5.1.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -121,7 +295,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
+    "settings.editor.selected.configurable": "actions.on.save",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -133,12 +307,13 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Bozhidar Manev\Documents\GitHub\SEP2\code\src\client\views\chatSystem" />
       <recent name="C:\Users\Radoslav\Documents\GitHub\SEP2\code\src\client\style" />
       <recent name="C:\Users\Bozhidar Manev\Documents\GitHub\SEP2\code" />
     </key>
   </component>
   <component name="RunManager" selected="Application.RunChatSystem">
-    <configuration name="RunChatSystem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="RunChatSystem" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="client.RunChatSystem" />
       <module name="SEP2" />
       <extension name="coverage">
@@ -164,7 +339,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dataBase.TestMain" />
+      <module name="SEP2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataBase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
+      <item itemvalue="Application.TestMain" />
       <item itemvalue="Application.RunChatSystem" />
       <item itemvalue="Application.StartServer" />
     </list>
@@ -172,8 +361,8 @@
       <list>
         <item itemvalue="Application.RunChatSystem" />
         <item itemvalue="Application.StartServer" />
+        <item itemvalue="Application.TestMain" />
         <item itemvalue="Application.StartServer" />
-        <item itemvalue="Application.RunChatApp" />
       </list>
     </recent_temporary>
   </component>
@@ -216,7 +405,9 @@
       <workItem from="1670501315510" duration="8226000" />
       <workItem from="1670514374347" duration="13000" />
       <workItem from="1670516587267" duration="4329000" />
-      <workItem from="1670528210718" duration="20706000" />
+      <workItem from="1670528210718" duration="65535000" />
+      <workItem from="1670746413892" duration="8790000" />
+      <workItem from="1670755874884" duration="45358000" />
     </task>
     <servers />
   </component>
@@ -233,120 +424,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/code/src/server/networking/RMIServerImpl.java</url>
-          <line>118</line>
-          <properties class="server.networking.RMIServerImpl" method="loadMessages">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/code/src/server/model/ModelImpl.java</url>
-          <line>77</line>
-          <properties class="server.model.ModelImpl" method="loadMessages">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/code/src/server/networking/RMIServerImpl.java</url>
-          <line>131</line>
-          <properties class="server.networking.RMIServerImpl" method="loadChats">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/code/src/server/networking/RMIServerImpl.java</url>
-          <line>136</line>
-          <properties class="server.networking.RMIServerImpl" method="loadUser">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/code/src/server/model/ModelImpl.java</url>
-          <line>89</line>
-          <properties class="server.model.ModelImpl" method="loadChats">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/code/src/server/model/ModelImpl.java</url>
-          <line>101</line>
-          <properties class="server.model.ModelImpl" method="loadUser">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/code/src/server/networking/RMIServerImpl.java</url>
-          <line>141</line>
-          <properties class="server.networking.RMIServerImpl" method="startChatWith">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/code/src/server/model/ModelImpl.java</url>
-          <line>114</line>
-          <properties class="server.model.ModelImpl" method="createChatWith">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/code/src/server/networking/RMIServerImpl.java</url>
-          <line>148</line>
-          <properties class="server.networking.RMIServerImpl" method="addUser">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/code/src/server/networking/RMIServerImpl.java</url>
-          <line>154</line>
-          <properties class="server.networking.RMIServerImpl" method="leaveChat">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/code/src/server/model/ModelImpl.java</url>
-          <line>135</line>
-          <properties class="server.model.ModelImpl" method="addUser">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/code/src/server/model/ModelImpl.java</url>
-          <line>145</line>
-          <properties class="server.model.ModelImpl" method="leaveChat">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

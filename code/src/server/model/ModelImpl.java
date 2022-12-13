@@ -2,17 +2,26 @@ package server.model;
 
 import client.model.Chat;
 import dataBase.*;
+import shared.networking.ClientCallback;
 import shared.util.Message;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ModelImpl implements Model {
-    private PropertyChangeSupport support = new PropertyChangeSupport(this);
+    private PropertyChangeSupport support;
+    private Map<String, ClientCallback> map;
     private List<String> usernames;
 
+    public ModelImpl() {
+        support = new PropertyChangeSupport(this);
+        map = new HashMap<>();
+    }
 
     @Override
     public synchronized void signUp(String firstName, String lastName, String username, String password) {
@@ -35,14 +44,22 @@ public class ModelImpl implements Model {
     }
 
     @Override
-    public String getPassword(String username) {
-        String password = " ";
+    public User getUser(String username, ClientCallback client) {
+        map.put(username, client);
         try {
-            password = DAOImpl.getInstance().getPassword(username);
+            return DAOImpl.getInstance().findUser(username);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return password;
+    }
+
+    @Override
+    public String getPassword(String username) {
+        try {
+            return DAOImpl.getInstance().getPassword(username);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -71,19 +88,41 @@ public class ModelImpl implements Model {
             throw new RuntimeException(e);
         }
     }
-
     //B
 
     @Override
-    public List<Message> loadMessages(String username) {
-        List<Message> list;
+    public void addMessage(Message message) {
         try {
-            list = MessageDAOImpl.getInstance().loadMessages(username);
+            DAOImpl.getInstance().addMessage(message);
         } catch (SQLException e) {
-            throw new RuntimeException("Error loading messages");
+            throw new RuntimeException("Error adding message");
+        }
+    }
+
+    @Override
+    public List<ClientCallback> loadReceivers(int toChat) {
+        List<String> usernames;
+        try {
+            usernames = DAOImpl.getInstance().getReceivers(toChat);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error fetching receivers");
+        }
+        List<ClientCallback> clients = new ArrayList<>();
+        for (String username : usernames) {
+            clients.add(map.get(username));
+        }
+        return clients;
+    }
+
+
+    @Override
+    public List<Message> loadMessages(String username) {
+        try {
+            return DAOImpl.getInstance().loadMessages(username);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
 
-        return list;
     }
 
     @Override
@@ -91,7 +130,7 @@ public class ModelImpl implements Model {
         List<Chat> list;
         try {
             // return all chats to which the username is subscribed
-            list = ChatDAOImpl.getInstance().requestChats(username);
+            list = DAOImpl.getInstance().loadChats(username);
         } catch (SQLException e) {
             throw new RuntimeException("Error loading chats");
         }
@@ -99,31 +138,31 @@ public class ModelImpl implements Model {
     }
 
     @Override
-    public User loadUser(String username) {
+    public User loadUsername(String username) {
         User user;
         try {
             // search for a user with this username
-            user = UserDAOImpl.getInstance().findUser(username);
+            user = DAOImpl.getInstance().loadUser(username);
         } catch (SQLException e) {
-            throw new RuntimeException("Error finding user");
+            throw new RuntimeException("Error finding username");
         }
         // null user will be returned if it does not exist
         return user;
     }
 
     @Override
-    public Chat createChatWith(String creator, String username) {
+    public Chat createChatWith(String creator, String invited, String chatName) {
         Chat chat = null;
         try {
-            User user = loadUser(username);
+            User user = loadUsername(invited);
             // If user exists
             if (user != null) {
                 //create chat
-                chat = ChatDAOImpl.getInstance().createChat();
+                chat = DAOImpl.getInstance().createChat(chatName);
                 int id = chat.getId();
                 //subscribe both to it
-                RecieverDAOImpl.getInstance().addReceiverToChat(creator, id);
-                RecieverDAOImpl.getInstance().addReceiverToChat(username, id);
+                DAOImpl.getInstance().addReceiverToChat(creator, id);
+                DAOImpl.getInstance().addReceiverToChat(invited, id);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -136,7 +175,7 @@ public class ModelImpl implements Model {
     public void addUser(String username, int id) {
         try {
             //subscribe a user to chat
-            RecieverDAOImpl.getInstance().addReceiverToChat(username, id);
+            DAOImpl.getInstance().addReceiverToChat(username, id);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -146,7 +185,32 @@ public class ModelImpl implements Model {
     public void leaveChat(String username, int id) {
         try {
             // Unsubscribe user from a chat
-            RecieverDAOImpl.getInstance().removeReceiverFromChat(username, id);
+            DAOImpl.getInstance().removeReceiverFromChat(username, id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void addClient(String username, ClientCallback client) {
+        map.put(username, client);
+    }
+
+    @Override
+    public ClientCallback removeClient(String username) {
+        return map.remove(username);
+    }
+
+    @Override
+    public ClientCallback getClient(String username) {
+        return map.get(username);
+    }
+
+    @Override
+    public Chat changeColour(Chat chat, String colour) {
+        //TODO
+        try {
+            return DAOImpl.getInstance().changeColour(chat.getId(), colour);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

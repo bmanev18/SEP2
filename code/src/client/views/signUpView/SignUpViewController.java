@@ -23,35 +23,38 @@ public class SignUpViewController {
     }
 
     public void OnSignUp() {
-        if(firstNameField.getText().isEmpty() || lastNameField.getText().isEmpty() || usernameField.getText().isEmpty() || passwordField.getText().isEmpty()) {
+        boolean notMatchingPassword = !passwordField.getText().equals(confirmPasswordField.getText());
+        boolean passwordTooLong = passwordField.getText().length() > 8;
+        boolean usernameAlreadyTaken = viewModel.getUser(usernameField.getText()).getUsername().equals(usernameField.getText().toLowerCase());
+        boolean usernameTooLong = usernameField.getText().length() > 15;
+        boolean hasEmptyField = firstNameField.getText().isEmpty() || lastNameField.getText().isEmpty() || usernameField.getText().isEmpty() || passwordField.getText().isEmpty();
+
+        if (hasEmptyField) {
             viewHandler.openAnAlertBox("All fields are mandatory", "Empty Fields");
-
-        } else if(passwordField.getText().length()>8){
-            viewHandler.openAnAlertBox("Password must be no longer than 8 symbols", "Invalid Password");
-            passwordField.clear();
-
-        } else if (!passwordField.getText().equals(confirmPasswordField.getText())){
+            
+        } else if (notMatchingPassword) {
             viewHandler.openAnAlertBox("Passwords do not match", "sign up failed");
             passwordField.clear();
             confirmPasswordField.clear();
 
-        } else if(usernameField.getText().length()>15){
+        } else if(usernameTooLong){
             viewHandler.openAnAlertBox("Username must be no longer than 15 symbols", "Invalid Username");
             passwordField.clear();
 
-        }/* else if(viewModel.getUsernames().contains(usernameField.getText())){
+        } else if(usernameAlreadyTaken){
             viewHandler.openAnAlertBox("Username "+ usernameField.getText() + " is already taken.", "Invalid Username");
             usernameField.clear();
 
-        } */else {
+        } else if(passwordTooLong){
+            viewHandler.openAnAlertBox("Password must be no longer than 8 symbols", "Invalid Password");
+            passwordField.clear();
+
+        } else {
             viewModel.signUp(firstNameField.getText(),lastNameField.getText(),usernameField.getText(),passwordField.getText());
             viewHandler.openAnAlertBox("Signed up successfully","Signed Up");
             viewHandler.openLogInView();
         }
 
     }
-
-    public void onBackButton() {
-        viewHandler.openLogInView();
-    }
 }
+

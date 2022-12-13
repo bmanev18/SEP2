@@ -1,15 +1,13 @@
 package client.core;
 
-import client.views.chatSystem.MainController;
+import client.views.addUser.AddUserController;
+import client.views.chatSystem.MainViewController;
 import client.views.login.LogInController;
 import client.views.signUpView.SignUpViewController;
 import client.views.updateView.UpdateViewController;
 import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
@@ -17,18 +15,16 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.StageStyle;
 
-import java.awt.*;
-import javafx.scene.input.MouseEvent;
 import java.io.IOException;
-import java.rmi.RemoteException;
 
 public class ViewHandler {
 
     private Stage stage;
 
     private Stage alertBoxStage;
+
+    private Stage chatOptionsStage;
 
     private Stage updateStage;
 
@@ -37,6 +33,7 @@ public class ViewHandler {
     private Scene logInScene;
     private Scene signUpScene;
     private Scene alertBoxScene;
+    private Scene addUser;
     private ViewModelFactory vmf;
 
     private double deltaY;
@@ -47,7 +44,9 @@ public class ViewHandler {
         stage = new Stage();
         alertBoxStage = new Stage();
         updateStage = new Stage();
+        chatOptionsStage = new Stage();
         alertBoxStage.initModality(Modality.APPLICATION_MODAL);
+        chatOptionsStage.initModality(Modality.APPLICATION_MODAL);
     }
 
     public void start() {
@@ -58,11 +57,11 @@ public class ViewHandler {
     public void openChatView() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("../views/chatSystem/main.fxml"));
+            loader.setLocation(getClass().getResource("../views/chatSystem/mainView.fxml"));
             Parent root = loader.load();
 
-            MainController mainController = loader.getController();
-            mainController.innit(vmf.getMainViewModel());
+            MainViewController mainViewController = loader.getController();
+            mainViewController.innit(vmf.getMainViewModel());
             stage.setOnCloseRequest(e -> {
                 vmf.getMainViewModel().disconnect();
                 Platform.exit();
@@ -115,6 +114,26 @@ public class ViewHandler {
         }
         stage.setScene(signUpScene);
         stage.setTitle("SignUp");
+    }
+
+    public void openAddUserView() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../views/addUser/addUserView.fxml"));
+            Parent root = loader.load();
+
+            AddUserController addUserController = loader.getController();
+            addUserController.innit(vmf.getSignUpViewModel());
+
+            addUser = new Scene(root);
+            //signUpScene.getStylesheets().add(getClass().getResource("../style/styleSignUpView.css").toExternalForm());
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage.setScene(addUser);
+        stage.setTitle("Add User");
     }
 
     public void openAnAlertBox(String messageToUser, String title) {

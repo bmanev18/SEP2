@@ -38,12 +38,18 @@ public class RMIClient implements Client, ClientCallback {
 
     @Override
     public void receive(Message message) {
-        toModel(message);
+        support.firePropertyChange("NewMessage", null, message);
     }
 
     @Override
-    public void toModel(Message message) {
-        support.firePropertyChange("NewMessage", null, message);
+    public void onNewChat(Chat chat) {
+        System.out.println("Client2");
+        support.firePropertyChange("AddedToChat", null, chat);
+    }
+
+    @Override
+    public void changeColour(Chat oldChat, Chat newChat) {
+        support.firePropertyChange("ChangedColour", oldChat, newChat);
     }
 
     @Override
@@ -85,10 +91,6 @@ public class RMIClient implements Client, ClientCallback {
         }
     }
 
-    @Override
-    public String getUsername() {
-        return username;
-    }
 
     @Override
     public List<String> getUsernames() {
@@ -100,9 +102,9 @@ public class RMIClient implements Client, ClientCallback {
     }
 
     @Override
-    public void disconnect(ClientCallback Callback) {
+    public void disconnect(String username) {
         try {
-            server.disconnect(this);
+            server.disconnect(username);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
@@ -150,12 +152,13 @@ public class RMIClient implements Client, ClientCallback {
     //B
 
     @Override
-    public Chat startChatWith(String creator, String username) throws RemoteException {
-        return server.startChatWith(creator, username);
+    public void startChatWith(String creator, String invited, String chatName) throws RemoteException {
+        System.out.println("Client");
+        server.startChatWith(creator, invited, chatName);
     }
 
     @Override
-    public void addUser(String username, int id) {
+    public void addUserToChat(String username, int id) {
         try {
             server.addUser(username, id);
         } catch (RemoteException e) {
@@ -193,7 +196,25 @@ public class RMIClient implements Client, ClientCallback {
     @Override
     public User loadUser(String username) {
         try {
-            return server.loadUser(username);
+            return server.loadUser(username, this);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public User getUser(String username) {
+        try {
+            return server.getUser(username, this);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void changeColour(Chat chat, String colour) {
+        try {
+            server.changeColour(chat, colour);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }

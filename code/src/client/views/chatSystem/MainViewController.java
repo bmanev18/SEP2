@@ -14,11 +14,11 @@ import javafx.scene.input.MouseEvent;
 import server.model.User;
 import shared.util.Message;
 
-public class MainController {
+public class MainViewController {
     @FXML
     private Label usernameLabel;
     @FXML
-    private Label chatName;
+    private Label chatNameLabel;
     @FXML
     private ListView<Message> messagesList;
     @FXML
@@ -27,6 +27,8 @@ public class MainController {
     private TextField sendTextField;
     @FXML
     private TextField searchTextField;
+    @FXML
+    private TextField groupNameField;
 
     @FXML
     private Button settingsButton;
@@ -37,11 +39,18 @@ public class MainController {
     public void innit(MainViewModel mainViewModel) {
         this.mainViewModel = mainViewModel;
         sendTextField.textProperty().bindBidirectional(mainViewModel.messageSend());
-        searchTextField.textProperty().bindBidirectional(mainViewModel.searchRequest());
+        searchTextField = new TextField();
         chats.setItems(mainViewModel.chats());
         messagesList.setItems(mainViewModel.messageReceived());
         usernameLabel.textProperty().bind(mainViewModel.username());
-        chatName.textProperty().bind(mainViewModel.chatName());
+        chatNameLabel.textProperty().bindBidirectional(mainViewModel.chatTitle());
+        //searchTextField.textProperty().bindBidirectional(mainViewModel.searchRequest());
+        //groupNameField.textProperty().bindBidirectional(mainViewModel.chatName());
+        groupNameField = new TextField();
+        groupNameField.setVisible(false);
+
+        //mainViewModel.loadData();
+
         setVisibility(false);
 
 
@@ -53,14 +62,32 @@ public class MainController {
     }
 
     public void onSearchButton() {
-        mainViewModel.search(searchTextField.getText());
+        String username = searchTextField.getText();
+        String chatName = groupNameField.getText();
+//        Add checks
+        System.out.println("MainController");
+        mainViewModel.startChatWith(username, chatName);
+        /*boolean isUsername = username != null || !username.equals("");
+        if (isUsername) {
+            searchTextField.setText("Please enter a valid username");
+            searchTextField.setPromptText("");
+        }
+        if (chatName != null || !chatName.equals("")) {
+            groupNameField.setText("Please enter a valid group name");
+        }*/
+
+
+
+        /*boolean ;
+        boolean isGroupName = chatName != null || !chatName.equals("");
+        if (isUsername && isGroupName)*/
     }
 
     public void keyPressed(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER) {
             if (keyEvent.getSource() == sendTextField) {
                 onSendButton();
-            } else if (keyEvent.getSource() == searchTextField) {
+            } else if (keyEvent.getSource() == groupNameField) {
                 onSearchButton();
             }
         }
@@ -74,30 +101,38 @@ public class MainController {
         Chat selectedItem = chats.getSelectionModel().getSelectedItem();
         if (!mainViewModel.isInSameChat(selectedItem)) {
             mainViewModel.switchChat(selectedItem);
-            //chatName.setText(selectedItem.getName());
+            chatNameLabel.setText(selectedItem.getName());
             System.out.println("id " + selectedItem.getId());
         }
     }
 
-    public void addUser(User user) {
+    public void addUserToChat(User user) {
         mainViewModel.addUser(user);
     }
 
     public void leaveChat() {
-        mainViewModel.leaveChat();
         setVisibility(false);
+        mainViewModel.leaveChat();
     }
 
     public void downloadChat() {
         mainViewModel.downloadChat();
     }
 
-    public void addUser(ActionEvent actionEvent) {
-        //TODO
+    public void startChatWith(ActionEvent actionEvent) {
+        mainViewModel.startChatWith(searchTextField.getText(), groupNameField.getText());
     }
 
     public void customize(ActionEvent actionEvent) {
         //TODO
+    }
+
+    public void changeGroupName(ActionEvent actionEvent) {
+        //TODO
+    }
+
+    public void showGroupName() {
+        groupNameField.setVisible(true);
     }
 
     private void setVisibility(boolean visible) {
@@ -105,5 +140,8 @@ public class MainController {
         sendTextField.setVisible(visible);
         sendButton.setVisible(visible);
         settingsButton.setVisible(visible);
+    }
+
+    public void updateProfile(ActionEvent actionEvent) {
     }
 }

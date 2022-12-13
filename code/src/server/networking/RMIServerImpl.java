@@ -30,6 +30,7 @@ public class RMIServerImpl implements RMIServer {
     private PropertyChangeSupport support = new PropertyChangeSupport(this);
     private ArrayList<PropertyChangeListener> pcl;
 
+
     public RMIServerImpl() throws RemoteException {
         UnicastRemoteObject.exportObject(this, 0);
         model = new ModelImpl();
@@ -63,27 +64,43 @@ public class RMIServerImpl implements RMIServer {
                 e.printStackTrace();
             }
         };
-        broadcast.addListener("NewMessage", listener);
+        //broadcast.addListener("NewMessage", listener);
+        clients.put(client, listener);
         pcl.add(listener);
 
-        clients.put(client, listener);
         System.out.println("Passed");
     }
 
     @Override
     public void broadcast(Message message) throws RemoteException {
-        broadcast.broadcast(message);
+        //Add the message to Database
+        model.addMessage(message);
+
+        //Fetch all receivers
+        List<ClientCallback> clients = model.loadReceivers(message.getToChat());
+
+        //Create a list of receivers' listeners
+        List<PropertyChangeListener> list = new ArrayList<>();
+
+        //Fetch listeners from this.clients and add to listeners
+        for (ClientCallback client : clients) {
+            list.add(this.clients.get(client));
+        }
+
+        // Broadcast the message
+        broadcast.broadcastMessage(message, list);
     }
 
     public List<String> getAllUsernames() {
-        return model.   getAllUsername();
+        return model.getAllUsername();
     }
 
     @Override
-    public void disconnect(ClientCallback clientCallback) {
-        PropertyChangeListener remove = clients.remove(clientCallback);
-        broadcast.removeListener("NewMessage", remove);
-        pcl.remove(remove);
+    public void disconnect(String username) {
+        // Remove client from model and save the object for next step
+        ClientCallback client = model.removeClient(username);
+        // Remove the listener from clients
+        clients.remove(client);
 
     }
 
@@ -134,15 +151,16 @@ public class RMIServerImpl implements RMIServer {
     }
 
     @Override
-    public User loadUser(String username) {
-        return model.loadUser(username);
+    public User loadUser(String username, ClientCallback client) {
+        return model.loadUsername(username);
     }
 
     @Override
-    public Chat startChatWith(String creator, String username) throws RemoteException {
-        Chat chat = model.createChatWith(creator, username);
-        // Notify and send chat
-        return chat;
+    public void startChatWith(String creator, String username, String chatName) throws RemoteException {
+        System.out.println("Server1");
+        Chat chat = model.createChatWith(creator, username, chatName);
+        System.out.println("Server2");
+        broadcast.sendNewChat(model.getClient(creator), model.getClient(username), chat);
     }
 
     @Override
@@ -152,9 +170,26 @@ public class RMIServerImpl implements RMIServer {
     }
 
     @Override
-    public void leaveChat(String username, int id) {
-        model.leaveChat(username, id);
-        //TODO
+    public void leaveChat(String username, int chatId) {
+        model.leaveChat(username, chatId);
+        try {
+            Message message = new Message("@server@", chatId, username + " has left the chat");
+            System.out.printf("%s -> %d: %s %s", message.getSender(), message.getToChat(), message.getMessageBody(), message.getDateTime());
+            broadcast(message);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public User getUser(String username, ClientCallback client) {
+        return model.getUser(username, client);
+    }
+
+    @Override
+    public void changeColour(Chat chat, String colour) {
+        //broadcast to all receivers
+        broadcast.changeColour(chat, model.changeColour(chat, colour), model.loadReceivers(chat.getId()));
     }
 
     @Override

@@ -16,19 +16,19 @@ public interface RMIServer extends Remote {
 
     void broadcast(Message message) throws RemoteException;
 
-
-
     void signUp(String firstName, String lastName, String username, String password) throws RemoteException;
 
     List<String> getAllUsernames() throws RemoteException;
 
-    void disconnect(ClientCallback clientCallback) throws RemoteException;
+    void disconnect(String username) throws RemoteException;
 
     String getPassword(String username) throws RemoteException;
 
-    void updatePassword(String username,String password) throws RemoteException;
-    void updateFirstname(String username,String firstName) throws RemoteException;
-    void updateLastname(String username,String lastName) throws RemoteException;
+    void updatePassword(String username, String password) throws RemoteException;
+
+    void updateFirstname(String username, String firstName) throws RemoteException;
+
+    void updateLastname(String username, String lastName) throws RemoteException;
 
     //B
 
@@ -36,13 +36,17 @@ public interface RMIServer extends Remote {
 
     List<Chat> loadChats(String username) throws RemoteException;
 
-    User loadUser(String username) throws RemoteException;
+    User loadUser(String username, ClientCallback client) throws RemoteException;
 
-    Chat startChatWith(String creator, String username) throws RemoteException;
+    void startChatWith(String creator, String username, String chatName) throws RemoteException;
 
     void addUser(String username, int id) throws RemoteException;
 
-    void leaveChat(String username, int id) throws RemoteException;
+    void leaveChat(String username, int chatId) throws RemoteException;
 
     void updateUser(String firstName, String lastName, String username, String password) throws RemoteException;
+
+    User getUser(String username, ClientCallback client) throws RemoteException;
+
+    void changeColour(Chat chatId, String colour) throws RemoteException;
 }

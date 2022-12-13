@@ -2,7 +2,6 @@ package client.model;
 
 import client.networking.Client;
 import server.model.User;
-import shared.networking.ClientCallback;
 import shared.util.Message;
 
 import java.beans.PropertyChangeEvent;
@@ -23,25 +22,34 @@ public class ModelManager implements Model {
         client.startClient();
         support = new PropertyChangeSupport(this);
         client.addListener("NewMessage", this::receive);
+        client.addListener("AddedToChat", this::addedToChat);
+        client.addListener("ColourChanged", this::changeColour);
         chatHistory = new ChatHistory();
         username = null;
     }
-    
+
     @Override
     public void send(Message message) {
         /*Message message = chatHistory.send(text);
         client.toCallback(message);
         return message;*/
         client.toCallback(message);
-
     }
 
     @Override
     public void receive(PropertyChangeEvent event) {
         Message msg = (Message) event.getNewValue();
-        //chatHistory.receive(event);
         support.firePropertyChange("MessageReceived", null, msg);
         System.out.println("Model Manager::receive " + msg);
+    }
+
+    @Override
+    public void addedToChat(PropertyChangeEvent event) {
+        Chat chat = (Chat) event.getNewValue();
+        System.out.println("ModelManager2");
+        support.firePropertyChange("AddedToChat", null, chat);
+        System.out.println("Model Manager::added to " + chat);
+
     }
 
     @Override
@@ -50,8 +58,8 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void signUp(String firstName,String lastName,String username,String password){
-        client.signUp(firstName,lastName,username,password);
+    public void signUp(String firstName, String lastName, String username, String password) {
+        client.signUp(firstName, lastName, username, password);
     }
 
     @Override
@@ -60,8 +68,8 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void disconnect(){
-        client.disconnect((ClientCallback) client);
+    public void disconnect() {
+        client.disconnect(username);
     }
 
     @Override
@@ -71,18 +79,18 @@ public class ModelManager implements Model {
 
     @Override
     public void updatePassword(String username, String password) {
-        client.updatePassword(username,password);
+        client.updatePassword(username, password);
     }
 
     @Override
     public void updateFirstName(String username, String firstName) {
-        client.updateFirstName(username,firstName);
+        client.updateFirstName(username, firstName);
 
     }
 
     @Override
     public void updateLastName(String username, String lastName) {
-        client.updateLastName(username,lastName);
+        client.updateLastName(username, lastName);
     }
 
     //B
@@ -93,23 +101,18 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public Chat startChatWith(String username) {
+    public void startChatWith(String username, String chatName) {
         try {
-            return client.startChatWith(this.username,username);
+            System.out.println("ModelManager");
+            client.startChatWith(this.username, username, chatName);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
-            //TODO pop up
         }
     }
 
     @Override
-    public User startChatWith() {
-        return client.loadUser(username);
-    }
-
-    @Override
     public void addUser(User user, Chat chat) {
-        client.addUser(user.getUsername(), chat.getId());
+        client.addUserToChat(user.getUsername(), chat.getId());
     }
 
     @Override
@@ -140,6 +143,25 @@ public class ModelManager implements Model {
     @Override
     public void removeListener(String eventName, PropertyChangeListener listener) {
         support.removePropertyChangeListener(eventName, listener);
+    }
+
+    @Override
+    public User getUser() {
+        return client.getUser(username);
+    }
+
+    @Override
+    public void changeColour(Chat chat, String colour) {
+        try {
+            client.changeColour(chat, colour);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void changeColour(PropertyChangeEvent event) {
+        support.firePropertyChange("ColourChanged", event.getOldValue(), event.getNewValue());
     }
 
 }
