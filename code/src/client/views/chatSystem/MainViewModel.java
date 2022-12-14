@@ -10,6 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import server.model.User;
 import shared.util.Message;
+import shared.util.SwearDetection;
 
 import javax.swing.*;
 import java.beans.PropertyChangeEvent;
@@ -118,7 +119,8 @@ public class MainViewModel {
 
     public void sendMessage(String text) {
         if (text != null && !text.equals("")) {
-            model.send(new Message(user.getUsername(), currentlyOpenedChat.getId(), text));
+            model.send(new Message(user.getUsername(), currentlyOpenedChat.getId(),
+                SwearDetection.changeSwearStatic(text)));
         }
     }
 

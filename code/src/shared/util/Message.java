@@ -11,12 +11,12 @@ public class Message implements Serializable {
     private String datetime;
 
     public Message(String sender, int toChat, String messageBody) {
-        this(sender, toChat, messageBody, new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()));
+        this(sender, toChat, SwearDetection.changeSwearStatic(messageBody), new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()));
     }
 
     public Message(String sender, int toChat, String messageBody, String datetime) {
         this.sender = sender;
-        this.messageBody = messageBody;
+        this.messageBody = SwearDetection.changeSwearStatic(messageBody);
         this.toChat = toChat;
         this.datetime = datetime;
 
