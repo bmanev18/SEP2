@@ -1,11 +1,11 @@
 package client.networking;
 
 //B
+
 import client.model.Chat;
 import server.model.User;
 //------
 
-import shared.networking.ClientCallback;
 import shared.util.Message;
 import shared.Subject;
 
@@ -16,29 +16,29 @@ import java.util.Map;
 public interface Client extends Subject {
     void toCallback(Message message);
 
-    void toModel(Message message);
-
     void startClient();
 
-    void changeUsername(String username);
+    void changeUsername(String username) throws RemoteException;
 
-    void signUp(String firstName,String lastName,String username,String password);
+    void signUp(String firstName, String lastName, String username, String password);
 
     List<String> getUsernames();
 
-    void disconnect(ClientCallback Callback);
+    void disconnect(String username);
 
     String getPassword(String username);
 
-    void updatePassword(String username,String password);
-    void updateFirstName(String username,String firstName);
-    void updateLastName(String username,String lastName);
+    void updatePassword(String username, String password);
+
+    void updateFirstName(String username, String firstName);
+
+    void updateLastName(String username, String lastName);
 
     //B
 
-    Chat startChatWith(String creator, String username) throws RemoteException;
+    void startChatWith(String creator, String invited, String chatName) throws RemoteException;
 
-    void addUser(String username, int id);
+    void addUserToChat(String username, int id);
 
     void leaveChat(String username, int id);
 
@@ -49,4 +49,8 @@ public interface Client extends Subject {
     User loadUser(String username);
 
     void updateUser(String firstName, String lastName, String username, String password);
+
+    User getUser(String username);
+
+    void changeColour(Chat chatId, String colour) throws RemoteException;
 }

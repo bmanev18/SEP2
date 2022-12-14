@@ -22,7 +22,7 @@
       <Label layoutX="57.0" layoutY="271.0" prefHeight="17.0" prefWidth="149.0" text="Password" />
       <Button layoutX="61.0" layoutY="412.0" mnemonicParsing="false" onAction="#OnSignUp" prefHeight="25.0" prefWidth="149.0" text="create profile." />
       <Label layoutX="57.0" layoutY="320.0" prefHeight="17.0" prefWidth="150.0" text="Confirm password" />
-      <Button layoutX="61.0" layoutY="444.0" mnemonicParsing="false" onAction="#onBackButton" prefHeight="25.0" prefWidth="149.0" text="back." />
+<!--      <Button layoutX="61.0" layoutY="444.0" mnemonicParsing="false" onAction="#onBackButton" prefHeight="25.0" prefWidth="149.0" text="back." />-->
       <PasswordField fx:id="passwordField" layoutX="57.0" layoutY="288.0" minHeight="20.0" prefHeight="20.0" prefWidth="150.0" promptText="max 8 characters." />
       <PasswordField fx:id="confirmPasswordField" layoutX="57.0" layoutY="337.0" minHeight="20.0" prefHeight="20.0" prefWidth="150.0" />
    </children>

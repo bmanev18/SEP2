@@ -1,6 +1,8 @@
 package server.model;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String username;
     private String firstname;
     private String lastname;
@@ -31,5 +33,9 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

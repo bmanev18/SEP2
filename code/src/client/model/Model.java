@@ -18,7 +18,7 @@ public interface Model extends Subject {
 
     void changeCurrentChat(Chat chat);
 
-    Chat startChatWith(String username);
+    void startChatWith(String username, String chatName);
 
     void signUp(String firstName, String lastName, String username, String password);
 
@@ -28,14 +28,14 @@ public interface Model extends Subject {
 
     String getPassword(String username);
 
-    void updatePassword(String username,String password);
-    void updateFirstName(String username,String firstName);
-    void updateLastName(String username,String lastName);
+    void updatePassword(String username, String password);
+
+    void updateFirstName(String username, String firstName);
+
+    void updateLastName(String username, String lastName);
 
     // B
-    User startChatWith();
-
-    void addUser(User user, Chat currentlyOpenedChat);
+    void addUser(String username, Chat currentlyOpenedChat);
 
     void leaveChat(String username, int id);
 
@@ -44,4 +44,12 @@ public interface Model extends Subject {
     Map<Integer, List<Message>> loadMessages();
 
     void updateUser(String firstName, String lastName, String username, String password);
+
+    void addedToChat(PropertyChangeEvent propertyChangeEvent);
+
+    User getUser();
+
+    void changeColour(Chat chatId, String colour);
+
+    void changeColour(PropertyChangeEvent event);
 }

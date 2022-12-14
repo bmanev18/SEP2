@@ -1,8 +1,8 @@
 package client.views.signUpView;
 
 import client.model.Model;
+import server.model.User;
 
-import java.beans.PropertyChangeEvent;
 import java.util.List;
 
 public class SignUpViewModel {
@@ -17,5 +17,8 @@ public class SignUpViewModel {
 
     public void signUp(String firstName, String lastName, String username, String password) {
         model.signUp(firstName,lastName,username,password);
+    }
+    public User getUser(String username){
+        return model.getUser();
     }
 }

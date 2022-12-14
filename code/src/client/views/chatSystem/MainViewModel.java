@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import server.model.User;
 import shared.util.Message;
 
+import javax.swing.*;
 import java.beans.PropertyChangeEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +22,8 @@ public class MainViewModel {
 
     private Model model;
     private StringProperty messageSend;
-    private StringProperty searchRequest;
+/*    private StringProperty searchRequest;
+    private StringProperty writeChatName;*/
 
     private ObservableList<Chat> chatCatalog;
     // A catalog of chats visible on the left side of the GUI.
@@ -34,16 +36,17 @@ public class MainViewModel {
     private User user;
     // Sender
     private StringProperty username;
-    // The username of the sender(used for optimizing sendMessage()).
 
-    private StringProperty chatName;
+    // The username of the sender(used for optimizing sendMessage()).
+    private StringProperty chatTitle;
 
     public MainViewModel(Model model) {
         this.model = model;
         messageSend = new SimpleStringProperty();
-        searchRequest = new SimpleStringProperty();
         username = new SimpleStringProperty();
-        chatName = new SimpleStringProperty();
+        chatTitle = new SimpleStringProperty();
+        /*searchRequest = new SimpleStringProperty();
+        writeChatName = new SimpleStringProperty();*/
         currentConversation = FXCollections.observableArrayList();
         currentlyOpenedChat = new Chat(-1, "Select Chat");
         chatCatalog = FXCollections.observableArrayList();
@@ -52,30 +55,49 @@ public class MainViewModel {
         chatMap = new HashMap<>();
         user = null;
         username.setValue("");
-        chatName.setValue(currentlyOpenedChat.getName());
+        chatTitle.setValue(currentlyOpenedChat.getName());
         model.addListener("MessageReceived", this::onMessageReceived);
+        model.addListener("AddedToChat", this::onNewChat);
+        model.addListener("ColourChanged", this::onColourChange);
 
-        load();
-        System.out.println(1);
+        loadData();
     }
 
-    private void loadData() {
+    public void loadData() {
         chatCatalog.addAll(model.loadChats());
         chatMap = model.loadMessages();
-        setUser(model.startChatWith());
-        // set User
+        setUser(model.getUser());
     }
 
-    private void load() {
+    private void onColourChange(PropertyChangeEvent event) {
+        Chat newChat = (Chat) event.getNewValue();
+        Chat oldChat = (Chat) event.getOldValue();
+
+        chatCatalog.set(chatCatalog.indexOf(oldChat), newChat);
+        if (currentlyOpenedChat.equals(oldChat)) {
+            currentlyOpenedChat = newChat;
+        }
+    }
+
+    public void onNewChat(PropertyChangeEvent event) {
+        Platform.runLater(() -> {
+            Chat chat = (Chat) event.getNewValue();
+            chatCatalog.add(chat);
+            chatMap.put(chat.getId(), new ArrayList<>());
+        });
+
+    }
+
+    /*public void load() {
         chatMap.put(1, new ArrayList<>());
         chatMap.put(2, new ArrayList<>());
         Chat chat1 = new Chat(1, "new");
         Chat chat2 = new Chat(2, "new2");
         chatCatalog.addAll(chat1, chat2);
         setUser(new User("user"));
-    }
+    }*/
 
-    private void onMessageReceived(PropertyChangeEvent evt) {
+    public void onMessageReceived(PropertyChangeEvent evt) {
         Platform.runLater(() -> {
             Message msg = (Message) evt.getNewValue();
             int toChat = msg.getToChat();
@@ -104,17 +126,12 @@ public class MainViewModel {
         currentConversation.clear();
         currentConversation.addAll(chatMap.get(chat.getId()));
         currentlyOpenedChat = chat;
-        chatName.setValue(currentlyOpenedChat.getName());
+        chatTitle.setValue(currentlyOpenedChat.getName());
     }
 
-    public void search(String username) {
-        Chat chat = model.startChatWith(username);
-        if (chatCatalog.contains(chat)) {
-            switchChat(chat);
-        } else {
-            chatCatalog.add(chat);
-            chatMap.put(chat.getId(), new ArrayList<>());
-        }
+    public void startChatWith(String username, String chatName) {
+        System.out.println("MainViewModel");
+        model.startChatWith(username, chatName);
     }
 
     public void setUser(User user) {
@@ -128,17 +145,14 @@ public class MainViewModel {
     }
 
 
-    public void addUser(User user) {
-        model.addUser(user, currentlyOpenedChat);
-    }
-
     public void leaveChat() {
         chatCatalog.remove(currentlyOpenedChat);
         int id = currentlyOpenedChat.getId();
         chatMap.remove(id);
         model.leaveChat(user.getUsername(), id);
+
+        chatTitle.setValue(currentlyOpenedChat.getName());
         currentlyOpenedChat = new Chat(-1, "Select Chat");
-        chatName().setValue(currentlyOpenedChat.getName());
     }
 
     public void downloadChat() {
@@ -157,19 +171,28 @@ public class MainViewModel {
         return chatCatalog;
     }
 
-    public StringProperty searchRequest() {
-        return searchRequest;
+    public void onColourChange(String colour) {
+        model.changeColour(currentlyOpenedChat, colour);
     }
 
     public StringProperty username() {
         return username;
     }
 
-    public StringProperty chatName() {
-        return chatName;
+    public StringProperty chatTitle() {
+        return chatTitle;
     }
 
-    public void disconnect(){
+/*    public StringProperty searchRequest() {
+        return searchRequest;
+    }
+
+    public StringProperty chatName() {
+        return writeChatName;
+    }*/
+
+    public void disconnect() {
         model.disconnect();
+        System.out.println("Disconnected");
     }
 }
