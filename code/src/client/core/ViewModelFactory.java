@@ -1,5 +1,6 @@
 package client.core;
 
+import client.views.addUser.AddUserViewModel;
 import client.views.chatSystem.MainViewModel;
 import client.views.login.LogInViewModel;
 import client.views.signUpView.SignUpViewModel;
@@ -13,6 +14,7 @@ public class ViewModelFactory {
     private UpdateViewModel updateViewModel;
 
     private SignUpViewModel signUpViewModel;
+    private AddUserViewModel addUserViewModel;
 
 
     public ViewModelFactory(ModelFactory mf) {
@@ -32,16 +34,25 @@ public class ViewModelFactory {
         }
         return logInViewModel;
     }
-    public SignUpViewModel getSignUpViewModel(){
+
+    public SignUpViewModel getSignUpViewModel() {
         if (signUpViewModel == null) {
             signUpViewModel = new SignUpViewModel(mf.getModel());
         }
         return signUpViewModel;
     }
-    public UpdateViewModel getUpdateViewModel(){
-        if (updateViewModel == null){
+
+    public UpdateViewModel getUpdateViewModel() {
+        if (updateViewModel == null) {
             updateViewModel = new UpdateViewModel(mf.getModel());
         }
         return updateViewModel;
+    }
+
+    public AddUserViewModel getAddUserViewModel() {
+        if (addUserViewModel == null) {
+            addUserViewModel = new AddUserViewModel(mf.getModel());
+        }
+        return addUserViewModel;
     }
 }

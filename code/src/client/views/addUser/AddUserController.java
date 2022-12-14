@@ -1,6 +1,7 @@
 package client.views.addUser;
 
-import client.views.signUpView.SignUpViewModel;
+import client.core.ViewHandler;
+import client.model.Chat;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -13,9 +14,14 @@ public class AddUserController {
     @FXML
     private Button addButton;
     private AddUserViewModel viewModel;
+    private Chat currentChat;
 
-    public void innit(SignUpViewModel signUpViewModel) {
 
+    public void innit(ViewHandler viewHandler, AddUserViewModel viewModel, Chat selectedItem) {
+        this.viewModel = viewModel;
+        usernameField = new TextField();
+        addButton = new Button();
+        currentChat = selectedItem;
     }
 
     public void addUser(KeyEvent keyEvent) {
@@ -25,6 +31,6 @@ public class AddUserController {
     }
 
     public void onButtonPressed() {
-        //viewModel.addUser(usernameField, id);
+        viewModel.addUser(usernameField.getText(), currentChat);
     }
 }

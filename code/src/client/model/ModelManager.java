@@ -14,8 +14,8 @@ import java.util.Map;
 public class ModelManager implements Model {
     private PropertyChangeSupport support;
     private Client client;
-    private ChatHistory chatHistory;
     private String username;
+    private Chat currentlyOpened;
 
     public ModelManager(Client client) {
         this.client = client;
@@ -24,7 +24,6 @@ public class ModelManager implements Model {
         client.addListener("NewMessage", this::receive);
         client.addListener("AddedToChat", this::addedToChat);
         client.addListener("ColourChanged", this::changeColour);
-        chatHistory = new ChatHistory();
         username = null;
     }
 
@@ -111,8 +110,8 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void addUser(User user, Chat chat) {
-        client.addUserToChat(user.getUsername(), chat.getId());
+    public void addUser(String username, Chat chat) {
+        client.addUserToChat(username, chat.getId());
     }
 
     @Override

@@ -1,5 +1,6 @@
 package client.views.chatSystem;
 
+import client.core.ViewHandler;
 import client.model.Chat;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,6 +14,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import server.model.User;
 import shared.util.Message;
+
+import java.io.IOException;
 
 public class MainViewController {
     @FXML
@@ -35,17 +38,17 @@ public class MainViewController {
     @FXML
     private ImageView sendButton;
     private MainViewModel mainViewModel;
+    private ViewHandler handler;
 
-    public void innit(MainViewModel mainViewModel) {
+    public void innit(ViewHandler viewHandler, MainViewModel mainViewModel) {
         this.mainViewModel = mainViewModel;
+        this.handler = viewHandler;
         sendTextField.textProperty().bindBidirectional(mainViewModel.messageSend());
         searchTextField = new TextField();
         chats.setItems(mainViewModel.chats());
         messagesList.setItems(mainViewModel.messageReceived());
         usernameLabel.textProperty().bind(mainViewModel.username());
         chatNameLabel.textProperty().bindBidirectional(mainViewModel.chatTitle());
-        //searchTextField.textProperty().bindBidirectional(mainViewModel.searchRequest());
-        //groupNameField.textProperty().bindBidirectional(mainViewModel.chatName());
         groupNameField = new TextField();
         groupNameField.setVisible(false);
 
@@ -67,20 +70,7 @@ public class MainViewController {
 //        Add checks
         System.out.println("MainController");
         mainViewModel.startChatWith(username, chatName);
-        /*boolean isUsername = username != null || !username.equals("");
-        if (isUsername) {
-            searchTextField.setText("Please enter a valid username");
-            searchTextField.setPromptText("");
-        }
-        if (chatName != null || !chatName.equals("")) {
-            groupNameField.setText("Please enter a valid group name");
-        }*/
 
-
-
-        /*boolean ;
-        boolean isGroupName = chatName != null || !chatName.equals("");
-        if (isUsername && isGroupName)*/
     }
 
     public void keyPressed(KeyEvent keyEvent) {
@@ -106,8 +96,8 @@ public class MainViewController {
         }
     }
 
-    public void addUserToChat(User user) {
-        mainViewModel.addUser(user);
+    public void addUserToChat() throws IOException {
+        handler.openAddUserView(chats.getSelectionModel().getSelectedItem());
     }
 
     public void leaveChat() {

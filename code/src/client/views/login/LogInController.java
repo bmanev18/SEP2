@@ -10,6 +10,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
+import java.io.IOException;
+
 public class LogInController {
     public PasswordField passwordField;
     @FXML
@@ -17,19 +19,20 @@ public class LogInController {
 
     private ViewHandler viewHandler;
     private LogInViewModel viewModel;
+
     public void innit(ViewHandler viewHandler, LogInViewModel logInViewModel) {
         this.viewHandler = viewHandler;
         this.viewModel = logInViewModel;
     }
 
     public void onEnterButton() {
-        if(usernameField.getText().isEmpty()|| passwordField.getText().isEmpty()){
-            viewHandler.openAnAlertBox("Empty Fields","Log In Failed");
-        } else if(viewModel.getPassword(usernameField.getText()).equals(passwordField.getText())) {
+        if (usernameField.getText().isEmpty() || passwordField.getText().isEmpty()) {
+            viewHandler.openAnAlertBox("Empty Fields", "Log In Failed");
+        } else if (viewModel.getPassword(usernameField.getText()).equals(passwordField.getText())) {
             viewModel.changeUsername(usernameField.getText());
             viewHandler.openChatView();
         } else {
-            viewHandler.openAnAlertBox("Incorrect Credentials","Log In Failed");
+            viewHandler.openAnAlertBox("Incorrect Credentials", "Log In Failed");
         }
     }
 
@@ -39,11 +42,11 @@ public class LogInController {
         }
     }
 
-    public void onSignUp() {
+    public void onSignUp() throws IOException {
         viewHandler.openSignUpView();
     }
 
-    public void openUpdate(ActionEvent actionEvent) {
+    public void openUpdate(ActionEvent actionEvent) throws IOException {
         viewHandler.openUpdateStage();
     }
 

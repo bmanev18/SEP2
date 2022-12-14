@@ -28,12 +28,14 @@ public interface Model extends Subject {
 
     String getPassword(String username);
 
-    void updatePassword(String username,String password);
-    void updateFirstName(String username,String firstName);
-    void updateLastName(String username,String lastName);
+    void updatePassword(String username, String password);
+
+    void updateFirstName(String username, String firstName);
+
+    void updateLastName(String username, String lastName);
 
     // B
-    void addUser(User user, Chat currentlyOpenedChat);
+    void addUser(String username, Chat currentlyOpenedChat);
 
     void leaveChat(String username, int id);
 

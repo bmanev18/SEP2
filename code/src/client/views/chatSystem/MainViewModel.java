@@ -145,10 +145,6 @@ public class MainViewModel {
     }
 
 
-    public void addUser(User user) {
-        model.addUser(user, currentlyOpenedChat);
-    }
-
     public void leaveChat() {
         chatCatalog.remove(currentlyOpenedChat);
         int id = currentlyOpenedChat.getId();

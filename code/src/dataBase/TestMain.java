@@ -1,7 +1,12 @@
 package dataBase;
 
+import client.views.addUser.AddUserController;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import shared.util.Message;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,9 +29,6 @@ public class TestMain {
         DAOImpl.getInstance().createMessage(message);*/
 
         //System.out.println(DAOImpl.getInstance().createChat("newChat"));
-        Map<String, List<String>> map = new HashMap<>();
-        map.put("String", new ArrayList<>());
-        System.out.println(map.get("string"));
 
     }
 }
