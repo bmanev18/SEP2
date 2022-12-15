@@ -1,0 +1,21 @@
+.root{
+    -fx-background-color: black;
+    -fx-font-family: 'Courier New';
+    -fx-border-color: red;
+}
+.label{
+    -fx-text-fill: red;
+}
+.button{
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-text-fill: red;
+}
+.button:hover{
+    -fx-border-color: white;
+    -fx-border-radius: 0, 0;
+    -fx-border-insets: 0 0 1 0, 0;
+    -fx-underline: true
+}
