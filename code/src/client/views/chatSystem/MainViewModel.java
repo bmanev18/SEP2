@@ -22,8 +22,8 @@ public class MainViewModel {
 
     private Model model;
     private StringProperty messageSend;
-/*    private StringProperty searchRequest;
-    private StringProperty writeChatName;*/
+    private StringProperty searchRequest;
+    private StringProperty writeChatName;
 
     private ObservableList<Chat> chatCatalog;
     // A catalog of chats visible on the left side of the GUI.
@@ -45,8 +45,8 @@ public class MainViewModel {
         messageSend = new SimpleStringProperty();
         username = new SimpleStringProperty();
         chatTitle = new SimpleStringProperty();
-        /*searchRequest = new SimpleStringProperty();
-        writeChatName = new SimpleStringProperty();*/
+        searchRequest = new SimpleStringProperty();
+        writeChatName = new SimpleStringProperty();
         currentConversation = FXCollections.observableArrayList();
         currentlyOpenedChat = new Chat(-1, "Select Chat");
         chatCatalog = FXCollections.observableArrayList();
@@ -88,14 +88,14 @@ public class MainViewModel {
 
     }
 
-    /*public void load() {
+    public void load() {
         chatMap.put(1, new ArrayList<>());
         chatMap.put(2, new ArrayList<>());
         Chat chat1 = new Chat(1, "new");
         Chat chat2 = new Chat(2, "new2");
         chatCatalog.addAll(chat1, chat2);
         setUser(new User("user"));
-    }*/
+    }
 
     public void onMessageReceived(PropertyChangeEvent evt) {
         Platform.runLater(() -> {
@@ -130,13 +130,15 @@ public class MainViewModel {
     }
 
     public void startChatWith(String username, String chatName) {
-        System.out.println("MainViewModel");
-        model.startChatWith(username, chatName);
+        System.out.println("MainViewModel: " + username);
+        Chat chat = model.startChatWith(username, chatName);
+        chatCatalog.add(chat);
+        chatMap.put(chat.getId(), new ArrayList<>());
     }
 
     public void setUser(User user) {
         this.user = user;
-        username.setValue(user.getUsername());
+        username.setValue(model.getUsername());
     }
 
 
@@ -183,13 +185,13 @@ public class MainViewModel {
         return chatTitle;
     }
 
-/*    public StringProperty searchRequest() {
+    public StringProperty searchRequest() {
         return searchRequest;
     }
 
     public StringProperty chatName() {
         return writeChatName;
-    }*/
+    }
 
     public void disconnect() {
         model.disconnect();

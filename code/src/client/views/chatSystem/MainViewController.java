@@ -44,15 +44,13 @@ public class MainViewController {
         this.mainViewModel = mainViewModel;
         this.handler = viewHandler;
         sendTextField.textProperty().bindBidirectional(mainViewModel.messageSend());
-        searchTextField = new TextField();
         chats.setItems(mainViewModel.chats());
         messagesList.setItems(mainViewModel.messageReceived());
         usernameLabel.textProperty().bind(mainViewModel.username());
         chatNameLabel.textProperty().bindBidirectional(mainViewModel.chatTitle());
-        groupNameField = new TextField();
         groupNameField.setVisible(false);
 
-        //mainViewModel.loadData();
+        mainViewModel.loadData();
 
         setVisibility(false);
 
@@ -109,10 +107,6 @@ public class MainViewController {
         mainViewModel.downloadChat();
     }
 
-    public void startChatWith(ActionEvent actionEvent) {
-        mainViewModel.startChatWith(searchTextField.getText(), groupNameField.getText());
-    }
-
     public void customize(ActionEvent actionEvent) {
         //TODO
     }
@@ -133,5 +127,14 @@ public class MainViewController {
     }
 
     public void updateProfile(ActionEvent actionEvent) {
+        handler.openUpdateStage();
+    }
+
+    public void onMinimize() {
+        handler.minimize();
+    }
+
+    public void onX() {
+        handler.leaveAndDisconnect();
     }
 }

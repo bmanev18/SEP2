@@ -13,6 +13,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -111,9 +112,9 @@ public class RMIClient implements Client, ClientCallback {
     }
 
     @Override
-    public String getPassword(String username) {
+    public boolean getPassword(String username, String password) {
         try {
-            return server.getPassword(username);
+            return server.getPassword(username, password);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
@@ -152,9 +153,9 @@ public class RMIClient implements Client, ClientCallback {
     //B
 
     @Override
-    public void startChatWith(String creator, String invited, String chatName) throws RemoteException {
+    public Chat startChatWith(String creator, String invited, String chatName) throws RemoteException {
         System.out.println("Client");
-        server.startChatWith(creator, invited, chatName);
+        return server.startChatWith(creator, invited, chatName);
     }
 
     @Override
@@ -221,9 +222,27 @@ public class RMIClient implements Client, ClientCallback {
     }
 
     @Override
-    public void updateUser(String firstName, String lastName, String username, String password) {
+    public boolean usernameAvailability(String username) {
         try {
-            server.updateUser(firstName, lastName, username, password);
+            return server.usernameAvailability(username);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public ArrayList<String> getInfoForUser(String username) {
+        try {
+            return server.getInfoForUser(username);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void updateUser(String firstName, String lastName, String password, String username) {
+        try {
+            server.updateUser(firstName, lastName, password, username);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }

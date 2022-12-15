@@ -15,11 +15,12 @@ public class LogInViewModel {
         model.changeUsername(username);
     }
 
-    public String getPassword(String username){
-        return model.getPassword(username);
+    public boolean getPassword(String username, String password) {
+        return model.getPassword(username, password);
     }
-public List<String> getUsernames(){
+
+    public List<String> getUsernames() {
         return model.getUsernames();
-}
+    }
 
 }

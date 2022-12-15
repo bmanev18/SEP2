@@ -7,15 +7,18 @@ import client.views.login.LogInController;
 import client.views.signUpView.SignUpViewController;
 import client.views.updateView.UpdateViewController;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -37,6 +40,9 @@ public class ViewHandler {
     private Scene addUser;
     private ViewModelFactory vmf;
 
+    private Double yOffset;
+    private Double xOffset;
+
     private double deltaY;
     private double deltaX;
 
@@ -48,9 +54,11 @@ public class ViewHandler {
         chatOptionsStage = new Stage();
         alertBoxStage.initModality(Modality.APPLICATION_MODAL);
         chatOptionsStage.initModality(Modality.APPLICATION_MODAL);
+        alertBoxStage.initStyle(StageStyle.UNDECORATED);
+        stage.initStyle(StageStyle.UNDECORATED);
     }
 
-    public void start() throws IOException {
+    public void start() {
         openLogInView();
         stage.show();
     }
@@ -63,12 +71,10 @@ public class ViewHandler {
 
             MainViewController mainViewController = loader.getController();
             mainViewController.innit(this, vmf.getMainViewModel());
-            stage.setOnCloseRequest(e -> {
-                vmf.getMainViewModel().disconnect();
-                Platform.exit();
-            });
 
-            chatScene = new Scene(loader.load());
+            chatScene = new Scene(root);
+            makeDraggable(root);
+            chatScene.getStylesheets().add(getClass().getResource("../style/chatStyle.css").toExternalForm());
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -78,64 +84,80 @@ public class ViewHandler {
 
     }
 
-    public void openLogInView() throws IOException {
+    public void openLogInView() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../views/login/LogIn.fxml"));
+            Parent root = loader.load();
 
-        FXMLLoader loader = loadFXML("login/LogIn.fxml");
+            LogInController loginController = loader.getController();
+            loginController.innit(this, vmf.getLogInViewModel());
 
-        LogInController loginController = loader.getController();
-        loginController.innit(this, vmf.getLogInViewModel());
+            logInScene = new Scene(root);
+            logInScene.getStylesheets().add(getClass().getResource("../style/styleLogInView.css").toExternalForm());
+            makeDraggable(root);
 
-        logInScene = new Scene(loader.load());
-        logInScene.getStylesheets().add(getClass().getResource("../style/styleLogInView.css").toExternalForm());
-
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         stage.setScene(logInScene);
         stage.setTitle("Log in");
     }
 
-    public void openSignUpView() throws IOException {
-        FXMLLoader fxmlLoader = loadFXML("signUpView/signUpView.fxml");
-        SignUpViewController signUpViewController = fxmlLoader.getController();
-        signUpViewController.innit(this, vmf.getSignUpViewModel());
+    public void openSignUpView() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../views/signUpView/signUpView.fxml"));
+            Parent root = loader.load();
 
-        signUpScene = new Scene(fxmlLoader.load());
-        signUpScene.getStylesheets().add(getClass().getResource("../style/styleSignUpView.css").toExternalForm());
+            SignUpViewController signUpViewController = loader.getController();
+            signUpViewController.innit(this, vmf.getSignUpViewModel());
+
+            signUpScene = new Scene(root);
+            signUpScene.getStylesheets().add(getClass().getResource("../style/styleSignUpView.css").toExternalForm());
+            makeDraggable(root);
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         stage.setScene(signUpScene);
         stage.setTitle("SignUp");
-
     }
 
     public void openAddUserView(Chat selectedItem) throws IOException {
-        FXMLLoader loader = loadFXML("addUser/addUserView.fxml");
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../views/addUser/addUserView.fxml"));
+        Parent root = loader.load();
+
         AddUserController addUserController = loader.getController();
         addUserController.innit(this, vmf.getAddUserViewModel(), selectedItem);
 
-        addUser = new Scene(loader.load());
+        addUser = new Scene(root);
 
         stage.setScene(addUser);
         stage.setTitle("Add User");
     }
 
-    public void openUpdateStage() throws IOException {
-        FXMLLoader loader = loadFXML("updateView/updateView.fxml");
+    public void openUpdateStage() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../views/updateView/updateView.fxml"));
+            Parent root = loader.load();
 
-        UpdateViewController updateViewController = loader.getController();
-        updateViewController.innit(this, vmf.getUpdateViewModel());
+            UpdateViewController updateViewController = loader.getController();
+            updateViewController.innit(this, vmf.getUpdateViewModel());
 
-        updateScene = new Scene(loader.load());
-        updateScene.getStylesheets().add(getClass().getResource("../style/styleUpdateView.css").toExternalForm());
+            updateScene = new Scene(root);
+            updateScene.getStylesheets().add(getClass().getResource("../style/styleUpdateView.css").toExternalForm());
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         updateStage.setScene(updateScene);
         updateStage.setTitle("Update Credentials");
-        updateStage.show();
+        updateStage.showAndWait();
 
-    }
-
-    private FXMLLoader loadFXML(String path) throws IOException {
-
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("../views/" + path));
-        Parent root = loader.load();
-        return loader;
     }
 
     public void openAnAlertBox(String messageToUser, String title) {
@@ -154,8 +176,44 @@ public class ViewHandler {
         vBox.setAlignment(Pos.CENTER);
 
         alertBoxScene = new Scene(vBox);
+        alertBoxScene.getStylesheets().add(getClass().getResource("../style/universalStyle.css").toExternalForm());
         alertBoxStage.setScene(alertBoxScene);
         alertBoxStage.showAndWait();
     }
 
+    private void makeDraggable(Parent root) {
+        root.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+
+        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                stage.setX(event.getScreenX() - xOffset);
+                stage.setY(event.getScreenY() - yOffset);
+            }
+        });
+    }
+
+    public void onXforLoginAndSignUp() {
+        Platform.exit();
+    }
+
+    public void leaveAndDisconnect() {
+        vmf.getMainViewModel().disconnect();
+        Platform.exit();
+    }
+
+    public void minimize() {
+        stage.setIconified(true);
+    }
+
+
+    public void closeUpdate() {
+        updateStage.close();
+    }
 }

@@ -23,10 +23,10 @@ public class SignUpViewController {
         this.viewModel = signUpViewModel;
     }
 
-    public void OnSignUp() throws IOException {
+    public void OnSignUp() {
         boolean notMatchingPassword = !passwordField.getText().equals(confirmPasswordField.getText());
         boolean passwordTooLong = passwordField.getText().length() > 8;
-        boolean usernameAlreadyTaken = viewModel.getUser(usernameField.getText()).getUsername().equals(usernameField.getText().toLowerCase());
+        boolean usernameAlreadyTaken = viewModel.usernameAvailability(usernameField.getText());
         boolean usernameTooLong = usernameField.getText().length() > 15;
         boolean hasEmptyField = firstNameField.getText().isEmpty() || lastNameField.getText().isEmpty() || usernameField.getText().isEmpty() || passwordField.getText().isEmpty();
 
@@ -56,6 +56,18 @@ public class SignUpViewController {
             viewHandler.openLogInView();
         }
 
+    }
+
+    public void onBackButton(ActionEvent actionEvent) {
+        viewHandler.openLogInView();
+    }
+
+    public void onX(ActionEvent actionEvent) {
+        viewHandler.onXforLoginAndSignUp();
+    }
+
+    public void onMinimize(ActionEvent actionEvent) {
+        viewHandler.minimize();
     }
 }
 

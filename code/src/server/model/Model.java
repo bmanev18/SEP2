@@ -5,6 +5,8 @@ import shared.Subject;
 import shared.networking.ClientCallback;
 import shared.util.Message;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface Model extends Subject {
@@ -47,4 +49,10 @@ public interface Model extends Subject {
     ClientCallback getClient(String creator);
 
     Chat changeColour(Chat chat, String colour);
+
+    boolean usernameAvailability(String username) throws SQLException;
+
+    ArrayList<String> getInfoForUser(String username);
+
+    void updateUser(String firstName, String lastName, String password, String username);
 }
