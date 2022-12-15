@@ -4,7 +4,6 @@
 }
 .button{
     -fx-border-color: transparent;
-    -fx-border-width: 0;
     -fx-background-radius: 0;
     -fx-background-color: transparent;
     -fx-text-fill: orange;
@@ -21,8 +20,25 @@
     -fx-text-fill: orange;
 }
 .button:hover{
-    -fx-border-color: white;
     -fx-border-radius: 0, 0;
     -fx-border-insets: 0 0 1 0, 0;
     -fx-underline: true
+}
+#XButton{
+    -fx-border-width: 1;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-text-fill: orange;
+}
+#minimizeButton{
+    -fx-border-width: 1;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-text-fill: orange;
+}
+#XButton:hover{
+    -fx-border-color: orange;
+}
+#minimizeButton:hover{
+    -fx-border-color: orange;
 }

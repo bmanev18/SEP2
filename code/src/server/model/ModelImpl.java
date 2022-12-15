@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.DoubleAccumulator;
 
 public class ModelImpl implements Model {
     private PropertyChangeSupport support;
@@ -226,5 +227,35 @@ public class ModelImpl implements Model {
     public void removeListener(String eventName, PropertyChangeListener listener) {
         support.removePropertyChangeListener(eventName, listener);
 
+    }
+
+    public boolean usernameAvailability(String username) {
+        boolean isAvailable = false;
+        try {
+            if (DAOImpl.getInstance().getUsernames().contains(username)) {
+                isAvailable = true;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return isAvailable;
+    }
+
+    @Override
+    public ArrayList<String> getInfoForUser(String username) {
+        try {
+            return DAOImpl.getInstance().getInfoForUser(username);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void updateUser(String firstName, String lastName, String password, String username) {
+        try {
+            DAOImpl.getInstance().updateUser(firstName, lastName, password, username);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

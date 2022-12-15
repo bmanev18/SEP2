@@ -3,7 +3,7 @@ set schema 'sep2_database';
 
 create domain username as varchar(15) not null;
 
-create table users
+create table user_table
 (
     firstName varchar(50) not null,
     lastName  varchar(50) not null,
@@ -13,7 +13,7 @@ create table users
 );
 
 
-create table chats
+create table chat_table
 (
     id          serial,
     name        varchar(30) not null,
@@ -21,7 +21,7 @@ create table chats
     primary key (id)
 );
 
-create table messages
+create table message_table
 (
     id       serial,
     sender   username,
@@ -29,15 +29,15 @@ create table messages
     text     varchar(500),
     datetime timestamp,
     primary key (id),
-    foreign key (sender) references users (username),
-    foreign key (toChat) references chats (id)
+    foreign key (sender) references user_table (username),
+    foreign key (toChat) references chat_table (id)
 );
 
-create table receivers
+create table receiver_table
 (
     username username,
     chat     integer not null,
     primary key (username, chat),
-    foreign key (username) references users (username),
-    foreign key (chat) references chats (id)
+    foreign key (username) references user_table (username),
+    foreign key (chat) references chat_table (id)
 );

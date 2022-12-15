@@ -5,6 +5,7 @@ import server.model.User;
 import shared.util.Message;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public interface DAO {
@@ -39,4 +40,8 @@ public interface DAO {
     List<String> getReceivers(int toChat) throws SQLException;
 
     Chat changeColour(int id, String colour);
+
+    ArrayList<String> getInfoForUser(String username) throws SQLException;
+
+    void updateUser(String firstName, String lastName, String password, String username) throws SQLException;
 }

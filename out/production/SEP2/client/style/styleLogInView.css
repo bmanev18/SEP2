@@ -52,10 +52,25 @@
     -fx-border-insets: 0 0 1 0, 0;
     -fx-underline: true;
 }
-.button{
-    -fx-border-color: transparent;
-    -fx-border-width: 0;
+
+.tool-bar{
+    -fx-background-color: transparent;
+}
+#minimizeButton{
+    -fx-border-width: 1;
     -fx-background-radius: 0;
     -fx-background-color: transparent;
     -fx-text-fill: orange;
+}
+#minimizeButton:hover{
+    -fx-border-color: orange;
+}
+#XButton{
+    -fx-border-width: 1;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-text-fill: orange;
+}
+#XButton:hover{
+   -fx-border-color: orange;
 }

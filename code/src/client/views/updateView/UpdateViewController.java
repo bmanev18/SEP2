@@ -12,27 +12,25 @@ public class UpdateViewController {
     public Button onSaveButton;
     public TextField firstNameField;
     public TextField lastNameField;
-    public PasswordField currentPasswordField;
-    public PasswordField newPasswordField;
     private ViewHandler viewHandler;
     private UpdateViewModel updateViewModel;
 
     public void innit(ViewHandler viewHandler, UpdateViewModel updateViewModel) {
         this.viewHandler = viewHandler;
         this.updateViewModel = updateViewModel;
+        firstNameField.textProperty().bindBidirectional(updateViewModel.firstName());
+        lastNameField.textProperty().bindBidirectional(updateViewModel.lastName());
+        System.out.print(updateViewModel.getUsername());
     }
 
     public void onSaveButton() {
-        if (firstNameField.getText().isEmpty() || lastNameField.getText().isEmpty() || currentPasswordField.getText().isEmpty() || newPasswordField.getText().isEmpty()) {
+        if (firstNameField.getText().isEmpty() || lastNameField.getText().isEmpty()) {
             viewHandler.openAnAlertBox("All fields are mandatory", "Empty Fields");
-        } else if (!currentPasswordField.getText().equals(updateViewModel.getPassword("test"))) {
-            viewHandler.openAnAlertBox("Passwords do not match", "Not updated");
-        } else if (newPasswordField.getText().length() > 8) {
-            viewHandler.openAnAlertBox("Password must be no longer than 8 symbols", "Invalid Password");
         } else {
-            updateViewModel.updateFirstName("test",firstNameField.getText());
-            updateViewModel.updateLastName("test",lastNameField.getText());
-            updateViewModel.updatePassword("test",newPasswordField.getText());
+            updateViewModel.updateFirstName(updateViewModel.getUsername(), firstNameField.getText());
+            updateViewModel.updateLastName(updateViewModel.getUsername(), lastNameField.getText());
+            viewHandler.closeUpdate();
         }
     }
+
 }

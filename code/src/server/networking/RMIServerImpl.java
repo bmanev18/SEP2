@@ -105,8 +105,8 @@ public class RMIServerImpl implements RMIServer {
     }
 
     @Override
-    public String getPassword(String username) {
-        return model.getPassword(username);
+    public boolean getPassword(String username, String password) {
+        return model.getPassword(username).equals(password);
     }
 
     @Override
@@ -156,11 +156,12 @@ public class RMIServerImpl implements RMIServer {
     }
 
     @Override
-    public void startChatWith(String creator, String username, String chatName) throws RemoteException {
+    public Chat startChatWith(String creator, String username, String chatName) throws RemoteException {
         System.out.println("Server1");
         Chat chat = model.createChatWith(creator, username, chatName);
         System.out.println("Server2");
-        broadcast.sendNewChat(model.getClient(creator), model.getClient(username), chat);
+        broadcast.sendNewChat(model.getClient(username), chat);
+        return chat;
     }
 
     @Override
@@ -193,7 +194,17 @@ public class RMIServerImpl implements RMIServer {
     }
 
     @Override
-    public void updateUser(String firstName, String lastName, String username, String password) {
-        //TODO
+    public boolean usernameAvailability(String username) {
+        return model.usernameAvailability(username);
+    }
+
+    @Override
+    public ArrayList<String> getInfoForUser(String username) {
+        return model.getInfoForUser(username);
+    }
+
+    @Override
+    public void updateUser(String firstName, String lastName, String password, String username) {
+        model.updateUser(firstName, lastName, password, username);
     }
 }

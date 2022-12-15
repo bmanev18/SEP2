@@ -30,30 +30,18 @@ public class BroadcastImpl implements Broadcast {
     }
 
     @Override
-    public void sendNewChat(ClientCallback creator, ClientCallback invited, Chat chat) {
-        List<ClientCallback> list = new ArrayList<>();
-        list.add(creator);
+    public void sendNewChat(ClientCallback invited, Chat chat) {
         if (invited != null) {
-            list.add(invited);
-        }
-        PropertyChangeListener listener;
-        List<PropertyChangeListener> listeners = new ArrayList<>();
-        for (ClientCallback client : list) {
-            listener = evt -> {
+            PropertyChangeListener listener = evt -> {
                 try {
-                    client.onNewChat((Chat) evt.getNewValue());
+                    invited.onNewChat((Chat) evt.getNewValue());
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
             };
             support.addPropertyChangeListener("NewChat", listener);
-            listeners.add(listener);
-        }
-        support.firePropertyChange("NewChat", null, chat);
-        System.out.println("Broadcast");
-
-        for (PropertyChangeListener propertyChangeListener : listeners) {
-            support.removePropertyChangeListener(propertyChangeListener);
+            support.firePropertyChange("NewChat", null, chat);
+            support.removePropertyChangeListener(listener);
         }
     }
 

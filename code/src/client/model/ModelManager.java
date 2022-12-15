@@ -8,6 +8,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -57,6 +58,11 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public String getUsername() {
+        return username;
+    }
+
+    @Override
     public void signUp(String firstName, String lastName, String username, String password) {
         client.signUp(firstName, lastName, username, password);
     }
@@ -72,8 +78,8 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public String getPassword(String username) {
-        return client.getPassword(username);
+    public boolean getPassword(String username, String password) {
+        return client.getPassword(username, password);
     }
 
     @Override
@@ -100,10 +106,12 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void startChatWith(String username, String chatName) {
+    public Chat startChatWith(String username, String chatName) {
         try {
             System.out.println("ModelManager");
-            client.startChatWith(this.username, username, chatName);
+            System.out.println(username);
+            System.out.println(this.username);
+            return client.startChatWith(this.username, username, chatName);
         } catch (RemoteException e) {
             throw new RuntimeException(e);
         }
@@ -130,8 +138,8 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void updateUser(String firstName, String lastName, String username, String password) {
-        client.updateUser(firstName, lastName, username, password);
+    public void updateUser(String firstName, String lastName, String password, String username) {
+        client.updateUser(firstName, lastName, password, username);
     }
 
     @Override
@@ -161,6 +169,24 @@ public class ModelManager implements Model {
     @Override
     public void changeColour(PropertyChangeEvent event) {
         support.firePropertyChange("ColourChanged", event.getOldValue(), event.getNewValue());
+    }
+
+    @Override
+    public boolean usernameAvailability(String username) {
+        try {
+            return client.usernameAvailability(username);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public ArrayList<String> getInfoForUser(String username) {
+        try {
+            return client.getInfoForUser(username);
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }

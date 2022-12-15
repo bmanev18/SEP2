@@ -11,7 +11,7 @@ import java.util.List;
 public interface Broadcast extends Subject {
     void broadcastMessage(Message message, List<PropertyChangeListener> listeners);
 
-    void sendNewChat(ClientCallback creator, ClientCallback invited, Chat chat);
+    void sendNewChat(ClientCallback invited, Chat chat);
 
     void changeColour(Chat oldChat, Chat newChat, List<ClientCallback> clients);
 }

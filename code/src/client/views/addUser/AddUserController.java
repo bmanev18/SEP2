@@ -15,11 +15,13 @@ public class AddUserController {
     private Button addButton;
     private AddUserViewModel viewModel;
     private Chat currentChat;
+    private ViewHandler viewHandler;
 
 
     public void innit(ViewHandler viewHandler, AddUserViewModel viewModel, Chat selectedItem) {
+        this.viewHandler = viewHandler;
         this.viewModel = viewModel;
-        usernameField = new TextField();
+//        usernameField = new TextField();
         addButton = new Button();
         currentChat = selectedItem;
     }
@@ -32,5 +34,6 @@ public class AddUserController {
 
     public void onButtonPressed() {
         viewModel.addUser(usernameField.getText(), currentChat);
+        viewHandler.openChatView();
     }
 }

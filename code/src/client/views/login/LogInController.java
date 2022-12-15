@@ -10,8 +10,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
-import java.io.IOException;
-
 public class LogInController {
     public PasswordField passwordField;
     @FXML
@@ -27,14 +25,25 @@ public class LogInController {
 
     public void onEnterButton() {
         if (usernameField.getText().isEmpty() || passwordField.getText().isEmpty()) {
-            viewHandler.openAnAlertBox("Empty Fields", "Log In Failed");
-        } else if (viewModel.getPassword(usernameField.getText()).equals(passwordField.getText())) {
+            viewHandler.openAnAlertBox("Empty Fields", " ");
+        } else if (viewModel.getPassword(usernameField.getText(), passwordField.getText())) {
             viewModel.changeUsername(usernameField.getText());
             viewHandler.openChatView();
         } else {
-            viewHandler.openAnAlertBox("Incorrect Credentials", "Log In Failed");
+            viewHandler.openAnAlertBox("Invalid Credentials", "Login Denied");
         }
+
+
     }
+//        if (usernameField.getText().isEmpty() || passwordField.getText().isEmpty()) {
+//            viewHandler.openAnAlertBox("Empty Fields", "Log In Failed");
+//        } else if (viewModel.getPassword(usernameField.getText()).equals(passwordField.getText())) {
+//            viewModel.changeUsername(usernameField.getText());
+//            viewHandler.openChatView();
+//        } else {
+//            viewHandler.openAnAlertBox("Incorrect Credentials", "Log In Failed");
+//        }
+//    }
 
     public void keyPressed(KeyEvent keyEvent) {
         if (keyEvent.getCode() == KeyCode.ENTER) {
@@ -42,12 +51,19 @@ public class LogInController {
         }
     }
 
-    public void onSignUp() throws IOException {
+    public void onSignUp() {
         viewHandler.openSignUpView();
     }
 
-    public void openUpdate(ActionEvent actionEvent) throws IOException {
+    public void openUpdate(ActionEvent actionEvent) {
         viewHandler.openUpdateStage();
     }
 
+    public void onX(ActionEvent actionEvent) {
+        viewHandler.onXforLoginAndSignUp();
+    }
+
+    public void onMinimize(ActionEvent actionEvent) {
+        viewHandler.minimize();
+    }
 }

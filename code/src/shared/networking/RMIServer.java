@@ -6,6 +6,7 @@ import shared.util.Message;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +23,7 @@ public interface RMIServer extends Remote {
 
     void disconnect(String username) throws RemoteException;
 
-    String getPassword(String username) throws RemoteException;
+    boolean getPassword(String username, String password) throws RemoteException;
 
     void updatePassword(String username, String password) throws RemoteException;
 
@@ -38,15 +39,19 @@ public interface RMIServer extends Remote {
 
     User loadUser(String username, ClientCallback client) throws RemoteException;
 
-    void startChatWith(String creator, String username, String chatName) throws RemoteException;
+    Chat startChatWith(String creator, String username, String chatName) throws RemoteException;
 
     void addUser(String username, int id) throws RemoteException;
 
     void leaveChat(String username, int chatId) throws RemoteException;
 
-    void updateUser(String firstName, String lastName, String username, String password) throws RemoteException;
+    void updateUser(String firstName, String lastName, String password, String username) throws RemoteException;
 
     User getUser(String username, ClientCallback client) throws RemoteException;
 
     void changeColour(Chat chatId, String colour) throws RemoteException;
+
+    boolean usernameAvailability(String username) throws RemoteException;
+
+    ArrayList<String> getInfoForUser(String username) throws RemoteException;
 }
