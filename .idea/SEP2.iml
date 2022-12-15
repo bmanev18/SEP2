@@ -12,5 +12,6 @@
     <orderEntry type="library" exported="" name="lib" level="application" />
     <orderEntry type="library" name="Java FX" level="application" />
     <orderEntry type="library" exported="" name="postgresql-42.2.27.jre7" level="project" />
+    <orderEntry type="library" name="JavaFX" level="application" />
   </component>
 </module>
