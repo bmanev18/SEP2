@@ -49,6 +49,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Bozhidar Manev\Documents\GitHub\SEP2\code\src\client\views\chatSystem" />
@@ -112,9 +117,9 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.TestMain" />
       <item itemvalue="Application.RunChatSystem" />
       <item itemvalue="Application.StartServer" />
+      <item itemvalue="Application.TestMain" />
       <item itemvalue="JUnit.SwearDetectionTest" />
     </list>
     <recent_temporary>
@@ -170,6 +175,7 @@
       <workItem from="1670746413892" duration="8790000" />
       <workItem from="1670755874884" duration="45358000" />
       <workItem from="1671005111359" duration="10472000" />
+      <workItem from="1671153111796" duration="2000" />
     </task>
     <servers />
   </component>
