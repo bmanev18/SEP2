@@ -1,0 +1,52 @@
+.root {
+    -fx-background-image: url("background.gif");
+    -fx-font-family: 'Courier New'
+}
+
+.list-cell:odd {
+    -fx-background-color: black;
+    -fx-text-fill: orange;
+}
+
+.list-cell:even {
+    -fx-background-color: #0c0404;
+    -fx-text-fill: orange;
+
+}
+
+#xButton {
+    -fx-border-width: 1;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-text-fill: orange;
+}
+
+#minimizeButton {
+    -fx-border-width: 1;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-text-fill: orange;
+}
+
+#xButton:hover {
+    -fx-border-color: orange;
+}
+
+#minimizeButton:hover {
+    -fx-border-color: orange;
+}
+
+#searchTextField {
+    -fx-text-fill: orange;
+    -fx-prompt-text-fill: derive(orange, -60%);
+}
+
+#groupNameField {
+    -fx-text-fill: orange;
+    -fx-prompt-text-fill: derive(orange, -60%);
+}
+
+#chats {
+    -fx-border-color: orange;
+}
+
