@@ -51,7 +51,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "WebServerToolWindowFactoryState": "false"
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -176,6 +181,7 @@
       <workItem from="1670755874884" duration="45358000" />
       <workItem from="1671005111359" duration="10472000" />
       <workItem from="1671153111796" duration="2000" />
+      <workItem from="1671184815968" duration="605000" />
     </task>
     <servers />
   </component>
