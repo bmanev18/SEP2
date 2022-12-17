@@ -4,25 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ada9f702-1ac5-45f6-9db1-65762b2be820" name="Changes" comment="" />
+    <list default="true" id="ada9f702-1ac5-45f6-9db1-65762b2be820" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <list id="fec108a5-d666-4809-a7cf-954dbd228c8e" name="Changes by radkoto123" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="new_GUI" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
-  }
-}]]></component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -41,10 +51,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Bozhidar Manev/Documents/GitHub/SEP2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -54,13 +61,21 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Bozhidar Manev\Documents\GitHub\SEP2\code\src\client\views\chatSystem" />
+      <recent name="C:\Users\Radoslav\Documents\GitHub\SEP2\code\src\client\style" />
       <recent name="C:\Users\Bozhidar Manev\Documents\GitHub\SEP2\code" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.RunChatApp">
-    <configuration name="RunChatApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="RunChatApp" />
+  <component name="RunManager" selected="JUnit.SwearDetectionTest">
+    <configuration name="RunChatSystem" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="client.RunChatSystem" />
       <module name="SEP2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -78,9 +93,46 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dataBase.TestMain" />
+      <module name="SEP2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataBase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SwearDetectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SEP2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="shared.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="shared.util" />
+      <option name="MAIN_CLASS_NAME" value="shared.util.SwearDetectionTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.RunChatSystem" />
+      <item itemvalue="Application.StartServer" />
+      <item itemvalue="Application.TestMain" />
+      <item itemvalue="JUnit.SwearDetectionTest" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RunChatApp" />
+        <item itemvalue="JUnit.SwearDetectionTest" />
+        <item itemvalue="Application.StartServer" />
+        <item itemvalue="Application.RunChatSystem" />
+        <item itemvalue="Application.TestMain" />
         <item itemvalue="Application.StartServer" />
       </list>
     </recent_temporary>
@@ -98,6 +150,38 @@
       <workItem from="1669911976838" duration="391000" />
       <workItem from="1669912608195" duration="13000" />
       <workItem from="1669916972868" duration="2396000" />
+      <workItem from="1670151087373" duration="684000" />
+      <workItem from="1670151900479" duration="2514000" />
+      <workItem from="1670160446416" duration="2771000" />
+      <workItem from="1670164319576" duration="1554000" />
+      <workItem from="1670170640626" duration="128000" />
+      <workItem from="1670171281953" duration="4448000" />
+      <workItem from="1670185590873" duration="4481000" />
+      <workItem from="1670190283920" duration="23000" />
+      <workItem from="1670280397122" duration="1615000" />
+      <workItem from="1670324232929" duration="2069000" />
+      <workItem from="1670328993384" duration="84000" />
+      <workItem from="1670332304974" duration="4131000" />
+      <workItem from="1670336823432" duration="123000" />
+      <workItem from="1670337048042" duration="44000" />
+      <workItem from="1670337102764" duration="2224000" />
+      <workItem from="1670365439430" duration="46000" />
+      <workItem from="1670415339383" duration="159000" />
+      <workItem from="1670422795157" duration="1690000" />
+      <workItem from="1670424518670" duration="8000" />
+      <workItem from="1670424539882" duration="2768000" />
+      <workItem from="1670427582967" duration="704000" />
+      <workItem from="1670452497688" duration="5742000" />
+      <workItem from="1670500084021" duration="798000" />
+      <workItem from="1670501315510" duration="8226000" />
+      <workItem from="1670514374347" duration="13000" />
+      <workItem from="1670516587267" duration="4329000" />
+      <workItem from="1670528210718" duration="65535000" />
+      <workItem from="1670746413892" duration="8790000" />
+      <workItem from="1670755874884" duration="45358000" />
+      <workItem from="1671005111359" duration="10472000" />
+      <workItem from="1671153111796" duration="2000" />
+      <workItem from="1671184815968" duration="605000" />
     </task>
     <servers />
   </component>
@@ -114,5 +198,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
