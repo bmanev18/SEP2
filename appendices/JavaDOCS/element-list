@@ -1,0 +1,16 @@
+client
+client.core
+client.model
+client.networking
+client.views.addUser
+client.views.chatSystem
+client.views.login
+client.views.signUpView
+client.views.updateView
+dataBase
+server
+server.model
+server.networking
+shared
+shared.networking
+shared.util
